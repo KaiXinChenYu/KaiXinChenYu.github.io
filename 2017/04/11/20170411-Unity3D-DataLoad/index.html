@@ -6,17 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://KaiXinChenYu.github.io">
-  <title>Archives: 2017/4 | HappyChen博客</title>
+  <title>Unity3D数据读取--简单Txt格式读取 | HappyChen博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="About Game">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HappyChen博客">
-<meta property="og:url" content="http://KaiXinChenYu.github.io/archives/2017/04/index.html">
+  <meta name="description" content="今天主要讲下我在使用Unity3D过程中，读取文件数据时一些浅显的经验，肯定有不少问题。 游戏开发过程中，如果是单机游戏，一般不包含数据库，这样导致稍微复杂的游戏将会包含大量的数据信息，包括物品，剧情，技能，人物信息等，这些数据得存储一般都会以一个外部文件进行存储，可以是Json，Xml，Excel，Txt等，这样方便管理游戏中大量的数据。这些数据将在运行游戏的时候进行读取。如果只是读取数据，那">
+<meta name="keywords" content="Unity3D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity3D数据读取--简单Txt格式读取">
+<meta property="og:url" content="http://KaiXinChenYu.github.io/2017/04/11/20170411-Unity3D-DataLoad/index.html">
 <meta property="og:site_name" content="HappyChen博客">
-<meta property="og:description" content="About Game">
+<meta property="og:description" content="今天主要讲下我在使用Unity3D过程中，读取文件数据时一些浅显的经验，肯定有不少问题。 游戏开发过程中，如果是单机游戏，一般不包含数据库，这样导致稍微复杂的游戏将会包含大量的数据信息，包括物品，剧情，技能，人物信息等，这些数据得存储一般都会以一个外部文件进行存储，可以是Json，Xml，Excel，Txt等，这样方便管理游戏中大量的数据。这些数据将在运行游戏的时候进行读取。如果只是读取数据，那">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170411-Img-Title.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170411-Img-Txt.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170411-Img-Operation1.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170411-Img-Operation2.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170411-Img-Operation3.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170411-Img-Operation4.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170411-Img-Operation5.jpg">
+<meta property="og:updated_time" content="2017-04-11T06:26:24.937Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HappyChen博客">
-<meta name="twitter:description" content="About Game">
+<meta name="twitter:title" content="Unity3D数据读取--简单Txt格式读取">
+<meta name="twitter:description" content="今天主要讲下我在使用Unity3D过程中，读取文件数据时一些浅显的经验，肯定有不少问题。 游戏开发过程中，如果是单机游戏，一般不包含数据库，这样导致稍微复杂的游戏将会包含大量的数据信息，包括物品，剧情，技能，人物信息等，这些数据得存储一般都会以一个外部文件进行存储，可以是Json，Xml，Excel，Txt等，这样方便管理游戏中大量的数据。这些数据将在运行游戏的时候进行读取。如果只是读取数据，那">
+<meta name="twitter:image" content="http://kaixinchenyu.github.io/assets/Img/20170411-Img-Title.jpg">
   
     <link rel="alternative" href="/atom.xml" title="HappyChen博客" type="application/atom+xml">
   
@@ -150,36 +160,187 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-20170411-Unity3D-DataLoad" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/11/20170411-Unity3D-DataLoad/" class="archive-article-date">
-  	<time datetime="2017-04-11T00:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/11/20170411-Unity3D-DataLoad/">Unity3D数据读取--简单Txt格式读取</a>
+    <h1 class="article-title" itemprop="name">
+      Unity3D数据读取--简单Txt格式读取
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/04/11/20170411-Unity3D-DataLoad/" class="archive-article-date">
+  	<time datetime="2017-04-11T00:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/Img/20170411-Img-Title.jpg" alt=""></p>
+<p>今天主要讲下我在使用Unity3D过程中，读取文件数据时一些浅显的经验，肯定有不少问题。</p>
+<p>游戏开发过程中，如果是单机游戏，一般不包含数据库，这样导致稍微复杂的游戏将会包含大量的数据信息，包括物品，剧情，技能，人物信息等，这些数据得存储一般都会以一个外部文件进行存储，可以是Json，Xml，Excel，Txt等，这样方便管理游戏中大量的数据。这些数据将在运行游戏的时候进行读取。如果只是读取数据，那么Txt文本是不错的选择，因为Unity源生对txt支持较好，可以在组件上直接拖入。而要像数据库一样，对这些数据进行增删改查的话Json和Xml是更好的选择。</p>
+<p>这次主要讲下读取txt文本。</p>
+<a id="more"></a>
+<p>##<strong>数据读取步骤</strong></p>
+<p><strong>1.素材准备</strong><br>先准备一个txt文件，我这用了一个Excel文档（来源：金庸群侠传X Mod编辑器）转成txt，因为个人感觉用excel管理数据，清晰明了，如果能直接读取当然更好，但是unity本身对其的支持不是很好，虽然也可以通过插件读取，但是或多或少还有些问题。excel表先另存为转成逗号分隔符的csv格式，然后直接强制转成txt。<br>附：excel文件地址 <a href="http://pan.baidu.com/s/1geZvqUJ" target="_blank" rel="external">http://pan.baidu.com/s/1geZvqUJ</a><br><img src="/assets/Img/20170411-Img-Txt.jpg" alt=""></p>
+<p><strong>2.Unity中操作</strong><br>1.Hierarchy面板新建一个空的游戏物体，起名GameManager。<br>2.Project面板新建四个文件夹备用，Scripts文件夹下，新建C#脚本InventoryInfoLoadManager和Inventory脚本，名称随意。<br>3.将脚本挂载到GameManager上。<br><img src="/assets/Img/20170411-Img-Operation1.jpg" alt=""></p>
+<p><strong>3.读取代码</strong><br>打开脚本Inventory，只读取一部分信息，编写如下代码：</p>
+<pre><code>using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Inventory
+{
+
+//属性定义
+private string name;
+private string des;
+private string talent;
+
+//封装
+public string Name
+{
+    get { return name; }
+    set { name = value; }
+}
+
+public string Des
+{
+    get { return des; }
+    set { des = value; }
+}
+
+public string Talent
+{
+    get { return talent; }
+    set { talent = value; }
+}
+}
+</code></pre><p>打开脚本InventoryInfoLoadManager脚本，编写如下代码：</p>
+<pre><code>using System.Collections;
+
+using System.Collections.Generic;
+
+using UnityEngine;
+
+public class InventoryInfoLoadManager : MonoBehaviour
+{
+
+//单例模式
+//public static InventoryInfoLoadManager _instance;
+
+//也可以用Resources.Load读取，我这就直接通过Inspector面板拖入
+public TextAsset inventoryInfo;
+
+//List集合存储所有物品
+public List&lt;Inventory&gt; list= new List&lt;Inventory&gt;();
+
+//void Awake()
+//{
+//    _instance = this;
+//}
+//Start方法中读取物品信息
+void Start()
+{
+    ReadInfo();
+    foreach (Inventory inventory in list)
+    {
+        print(inventory.Name);//输出到控制台测试
+    }        
+}
+
+//信息读取方法
+void ReadInfo()
+{
+    string allInfo = inventoryInfo.text;
+    string[] lineInfoArray = allInfo.Split(&apos;\n&apos;);
+
+    foreach (string lineInfo in lineInfoArray)
+    {
+        string[] itemInfoArray = lineInfo.Split(&apos;,&apos;);
+        if (itemInfoArray[0] == &quot;物品名&quot;)
+        {               
+        }
+        else
+        {
+            string name = itemInfoArray[0];
+            string des = itemInfoArray[1];
+            string talent = itemInfoArray[3];
+            Inventory it= new Inventory();
+            it.Name = name;
+            it.Des = des;
+            it.Talent = talent;
+            list.Add(it);
+        }
+    }
+
+}
+
+}
+</code></pre><p>写完代码把txt文件拖到脚本InventoryInfoLoadManager上，确保txt文本没有多余空格，且是utf-8格式，之后在控制台就能显示读取数据。到这就结束了，下面是我自己继续将信息显示到游戏物体之上，方法不好。<br><img src="/assets/Img/20170411-Img-Operation2.jpg" alt=""></p>
+<p><strong>4.界面显示</strong><br>首先将InventoryInfoLoadManager中注释的单例模式取消注释，再新建两个类，InventoryManager和InventoryItem，Hierarchy面板新建grid（grid上添加GridLayouGroup脚本）用来存放物品，和item物体（item物体添加InventoryItem脚本）用来存放物品信息，get按钮添加点击事件，InventoryManager拖到GameManager游戏物体上具体如下图：<br><img src="/assets/Img/20170411-Img-Operation3.jpg" alt="">    </p>
+<p>InventoryItem脚本如下：</p>
+<pre><code>using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class InventoryItem : MonoBehaviour
+{
+//UI相关
+public Text name;
+public Text des;
+public Text talent;
+
+public void UpdateInfo(string name,string des,string talent)
+{
+    this.name.text = name;
+    this.des.text = des;
+    this.talent.text = talent;
+}
+}
+</code></pre><p>InventoryManager脚本如下：</p>
+<pre><code>using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class InventoryManager : MonoBehaviour
+{
+//网格游戏物体
+public GameObject grid;
+//prefab
+public GameObject inventoryItemPrefab;
+//获取list中所有物品
+private List&lt;Inventory&gt; list;
+
+
+public void OnClickLoadInventory()
+{
+    list = InventoryInfoLoadManager._instance.list;
+    foreach (Inventory inventory in list)
+    {
+        inventoryItemPrefab.GetComponent&lt;InventoryItem&gt;().UpdateInfo(inventory.Name,inventory.Des,inventory.Talent);
+        GameObject iip = GameObject.Instantiate(inventoryItemPrefab) as GameObject;
+        iip.transform.parent = grid.transform;
+    }
+}
+
+}
+</code></pre><p>Inspector面板如下图：<br><img src="/assets/Img/20170411-Img-Operation4.jpg" alt=""> </p>
+<p>最终结果图：<br><img src="/assets/Img/20170411-Img-Operation5.jpg" alt=""> </p>
+<p>写完了，好艰难。。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,57 +352,108 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://KaiXinChenYu.github.io/2017/04/11/20170411-Unity3D-DataLoad/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/10/20170410-Diary-Beginning/" class="archive-article-date">
-  	<time datetime="2017-04-10T11:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/10/20170410-Diary-Beginning/">技术之路从此开始</a>
-    </h1>
+    <a href="/2017/04/10/20170410-Diary-Beginning/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          技术之路从此开始
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">成长之路</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'kaixinchenyu-github-io'; // required: replace example with your forum shortname
 
-    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
 
 
           </div>
@@ -264,8 +476,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
