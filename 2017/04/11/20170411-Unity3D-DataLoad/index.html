@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170411-Img-Operation3.jpg">
 <meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170411-Img-Operation4.jpg">
 <meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170411-Img-Operation5.jpg">
-<meta property="og:updated_time" content="2017-04-11T06:26:24.937Z">
+<meta property="og:updated_time" content="2017-04-11T06:29:44.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity3D数据读取--简单Txt格式读取">
 <meta name="twitter:description" content="今天主要讲下我在使用Unity3D过程中，读取文件数据时一些浅显的经验，肯定有不少问题。 游戏开发过程中，如果是单机游戏，一般不包含数据库，这样导致稍微复杂的游戏将会包含大量的数据信息，包括物品，剧情，技能，人物信息等，这些数据得存储一般都会以一个外部文件进行存储，可以是Json，Xml，Excel，Txt等，这样方便管理游戏中大量的数据。这些数据将在运行游戏的时候进行读取。如果只是读取数据，那">
@@ -185,8 +185,7 @@
 <p>游戏开发过程中，如果是单机游戏，一般不包含数据库，这样导致稍微复杂的游戏将会包含大量的数据信息，包括物品，剧情，技能，人物信息等，这些数据得存储一般都会以一个外部文件进行存储，可以是Json，Xml，Excel，Txt等，这样方便管理游戏中大量的数据。这些数据将在运行游戏的时候进行读取。如果只是读取数据，那么Txt文本是不错的选择，因为Unity源生对txt支持较好，可以在组件上直接拖入。而要像数据库一样，对这些数据进行增删改查的话Json和Xml是更好的选择。</p>
 <p>这次主要讲下读取txt文本。</p>
 <a id="more"></a>
-<p>##<strong>数据读取步骤</strong></p>
-<p><strong>1.素材准备</strong><br>先准备一个txt文件，我这用了一个Excel文档（来源：金庸群侠传X Mod编辑器）转成txt，因为个人感觉用excel管理数据，清晰明了，如果能直接读取当然更好，但是unity本身对其的支持不是很好，虽然也可以通过插件读取，但是或多或少还有些问题。excel表先另存为转成逗号分隔符的csv格式，然后直接强制转成txt。<br>附：excel文件地址 <a href="http://pan.baidu.com/s/1geZvqUJ" target="_blank" rel="external">http://pan.baidu.com/s/1geZvqUJ</a><br><img src="/assets/Img/20170411-Img-Txt.jpg" alt=""></p>
+<h2 id="数据读取步骤"><a href="#数据读取步骤" class="headerlink" title="数据读取步骤"></a><strong>数据读取步骤</strong></h2><p><strong>1.素材准备</strong><br>先准备一个txt文件，我这用了一个Excel文档（来源：金庸群侠传X Mod编辑器）转成txt，因为个人感觉用excel管理数据，清晰明了，如果能直接读取当然更好，但是unity本身对其的支持不是很好，虽然也可以通过插件读取，但是或多或少还有些问题。excel表先另存为转成逗号分隔符的csv格式，然后直接强制转成txt。<br>附：excel文件地址 <a href="http://pan.baidu.com/s/1geZvqUJ" target="_blank" rel="external">http://pan.baidu.com/s/1geZvqUJ</a><br><img src="/assets/Img/20170411-Img-Txt.jpg" alt=""></p>
 <p><strong>2.Unity中操作</strong><br>1.Hierarchy面板新建一个空的游戏物体，起名GameManager。<br>2.Project面板新建四个文件夹备用，Scripts文件夹下，新建C#脚本InventoryInfoLoadManager和Inventory脚本，名称随意。<br>3.将脚本挂载到GameManager上。<br><img src="/assets/Img/20170411-Img-Operation1.jpg" alt=""></p>
 <p><strong>3.读取代码</strong><br>打开脚本Inventory，只读取一部分信息，编写如下代码：</p>
 <pre><code>using System.Collections;
@@ -542,11 +541,11 @@ public void OnClickLoadInventory()
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
+                <a href="javascript:void(0)" class="js-tag color5">成长之路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">成长之路</a>
+                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
               </li>
             
             <div class="clearfix"></div>
