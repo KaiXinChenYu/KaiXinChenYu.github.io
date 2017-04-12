@@ -16,8 +16,8 @@
 <meta property="og:site_name" content="HappyChen博客">
 <meta property="og:description" content="自己参照网上的UI框架，简单改了下，并且用到了昨天的txt文本读取。只做了个简单的测试，可能存在一些问题。">
 <meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170412-Img-Title.jpg">
-<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170412-Img-Operation1.jpg">
-<meta property="og:updated_time" content="2017-04-12T05:44:39.192Z">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170412-Img-Operation.jpg">
+<meta property="og:updated_time" content="2017-04-12T05:48:48.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity3D简易UI框架（工具类）">
 <meta name="twitter:description" content="自己参照网上的UI框架，简单改了下，并且用到了昨天的txt文本读取。只做了个简单的测试，可能存在一些问题。">
@@ -351,7 +351,7 @@ using UnityEngine;
 public class GameRoot : MonoBehaviour {
 
 /// &lt;summary&gt;
-/// 启动初始界面,挂在游戏物体之上,用来测试的代码，可以不要。
+/// 启动初始界面,挂在游戏物体之上
 /// &lt;/summary&gt;
 void Start () {
 
@@ -361,7 +361,7 @@ void Start () {
 }
 </code></pre><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p><strong>简单测试Demo：</strong><br>在Assets文件夹下新建Resources，Scripts，Scenes和UIFramework文件夹，Rescources文件夹下新建UI文件夹和UIPanelInfo.txt文件（UTF-8格式）。Hierarchy面板新建两个Canvas，改名为OptionPanel和StartPanel，在各自下面分别再建一个Panel，改改颜色大小之类的。OptionPanel下新建一个Start按钮。再新建两个脚本StartUI和OptionUI，都继承自UIBase，之后就可以复写父类的四个方法，分别可以控制UI面板的各个状态。OptionUI在添加一个点击事件–事件内容为push一个StartPanel，之后给Start按钮添加点击事件。</p>
 <p>txt文本填写<strong>StartPanel，OptionPanel</strong><br>具体格式和昨天的一样，也可以选择用json之类的</p>
-<p><img src="/assets/Img/20170412-Img-Operation1.jpg" alt=""></p>
+<p><img src="/assets/Img/20170412-Img-Operation.jpg" alt=""></p>
 <p>上面只是试了下，因为blog实在写不了太多，太废时间了，具体怎么用，我可能会出个视频，也加强下自己对这个工具类的理解。其实如果UI面板比较少的话，没必要用框架，不过用了的话，整体确实清晰很多，也方便管理。</p>
 <p>今天，到这了。</p>
 
@@ -573,11 +573,11 @@ void Start () {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
+                <a href="javascript:void(0)" class="js-tag color5">成长之路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">成长之路</a>
+                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
               </li>
             
             <div class="clearfix"></div>
