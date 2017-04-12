@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://KaiXinChenYu.github.io">
-  <title>Archives: 2017/4 | HappyChen博客</title>
+  <title>Unity3D简易UI框架（工具类） | HappyChen博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="About Game">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HappyChen博客">
-<meta property="og:url" content="http://KaiXinChenYu.github.io/archives/2017/04/index.html">
+  <meta name="description" content="自己参照网上的UI框架，简单改了下，并且用到了昨天的txt文本读取。只做了个简单的测试，可能存在一些问题。">
+<meta name="keywords" content="Unity3D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity3D简易UI框架（工具类）">
+<meta property="og:url" content="http://KaiXinChenYu.github.io/2017/04/12/20170412-Unity3D-UIFramework/index.html">
 <meta property="og:site_name" content="HappyChen博客">
-<meta property="og:description" content="About Game">
+<meta property="og:description" content="自己参照网上的UI框架，简单改了下，并且用到了昨天的txt文本读取。只做了个简单的测试，可能存在一些问题。">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170412-Img-Title.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170412-Img-Operation1.jpg">
+<meta property="og:updated_time" content="2017-04-12T05:44:39.192Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HappyChen博客">
-<meta name="twitter:description" content="About Game">
+<meta name="twitter:title" content="Unity3D简易UI框架（工具类）">
+<meta name="twitter:description" content="自己参照网上的UI框架，简单改了下，并且用到了昨天的txt文本读取。只做了个简单的测试，可能存在一些问题。">
+<meta name="twitter:image" content="http://kaixinchenyu.github.io/assets/Img/20170412-Img-Title.jpg">
   
     <link rel="alternative" href="/atom.xml" title="HappyChen博客" type="application/atom+xml">
   
@@ -150,36 +155,223 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-20170412-Unity3D-UIFramework" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Unity3D简易UI框架（工具类）
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/12/20170412-Unity3D-UIFramework/" class="archive-article-date">
+
+        
+        <a href="/2017/04/12/20170412-Unity3D-UIFramework/" class="archive-article-date">
   	<time datetime="2017-04-12T04:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/12/20170412-Unity3D-UIFramework/">Unity3D简易UI框架（工具类）</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/Img/20170412-Img-Title.jpg" alt=""></p>
+<p>自己参照网上的UI框架，简单改了下，并且用到了昨天的txt文本读取。只做了个简单的测试，可能存在一些问题。</p>
+<a id="more"></a>
+<h2 id="工具类代码"><a href="#工具类代码" class="headerlink" title="工具类代码"></a>工具类代码</h2><p>首先在Unity中新建3个C#脚本，分别命名为GameRoot，UIBase，UIManager，命名看自己喜好吧。分别如下：</p>
+<p><strong>UIBase：</strong></p>
+<pre><code>using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-        <div class="article-info info-on-right">
-          
+public class UIBase : MonoBehaviour {
+/// &lt;summary&gt;
+/// 显示界面
+/// &lt;/summary&gt;
+public virtual void DoOnEntering() { }
+/// &lt;summary&gt;
+/// 暂停界面
+/// &lt;/summary&gt;
+public virtual void DoOnPausing() { }
+/// &lt;summary&gt;
+/// 继续界面
+/// &lt;/summary&gt;
+public virtual void DoOnResuming() { }
+/// &lt;summary&gt;
+/// 关闭界面
+/// &lt;/summary&gt;
+public virtual void DoOnExiting() { }
+}
+</code></pre><p><strong>UIManager：</strong></p>
+<pre><code>using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class UIManager {
+
+/// &lt;summary&gt;
+/// 单例模式，初始化对象
+/// &lt;/summary&gt;
+private static UIManager _instance;
+public static UIManager Instance
+{
+    get
+    {
+        if (_instance == null)
+        {
+            _instance = new UIManager();
+        }
+        return _instance;
+    }
+}
+
+private UIManager()
+{
+    LoadAllUIPrefabs();
+}
+
+
+/// &lt;summary&gt;
+/// 存放UI面板的栈
+/// &lt;/summary&gt; 
+private Stack&lt;UIBase&gt; UIPanelStack;
+
+/// &lt;summary&gt;
+/// 保存所有的面板
+/// &lt;/summary&gt;
+private Dictionary&lt;string, UIBase&gt; UIPanelDict;
+
+/// &lt;summary&gt;
+/// 根据名字保存面板的prefab
+/// &lt;/summary&gt;
+private Dictionary&lt;string, GameObject&gt; UIPrefabDict =new Dictionary&lt;string, GameObject&gt;();
+
+/// &lt;summary&gt;
+/// UI路径
+/// &lt;/summary&gt;
+private string ResourceDir = &quot;UI&quot;;
+
+
+/// &lt;summary&gt;
+/// 把页面入栈--把页面显示在界面上
+/// &lt;/summary&gt;
+public void PushPanel(string UIPanelName)
+{
+    if (UIPanelStack == null)
+        UIPanelStack = new Stack&lt;UIBase&gt;();
+
+    //判断一下栈里面是否有页面
+    if (UIPanelStack.Count &gt; 0)
+    {
+        UIBase topPanel = UIPanelStack.Peek();
+        topPanel.DoOnPausing();
+    }
+
+    UIBase panel = GetPanel(UIPanelName);
+    panel.DoOnEntering();
+    UIPanelStack.Push(panel);
+}
+
+/// &lt;summary&gt;
+/// 出栈 ，把页面从界面上移除
+/// &lt;/summary&gt;
+public void PopPanel()
+{
+    if (UIPanelStack == null)
+        UIPanelStack = new Stack&lt;UIBase&gt;();
+
+    if (UIPanelStack.Count == 0) return;
+
+    //关闭栈顶页面的显示
+    UIBase topPanel = UIPanelStack.Pop();
+    topPanel.DoOnExiting();
+
+    if (UIPanelStack.Count &gt; 0)
+    {
+        UIBase topPanel2 = UIPanelStack.Peek();
+        topPanel2.DoOnResuming();
+    }
+
+}
+/// &lt;summary&gt;
+/// 根据面板类型 得到实例化的面板
+/// &lt;/summary&gt;
+/// &lt;returns&gt;&lt;/returns&gt;
+private UIBase GetPanel(string UIPanelName)
+{
+    if (UIPanelDict == null)
+    {
+        UIPanelDict = new Dictionary&lt;string, UIBase&gt;();
+    }
+
+    UIBase panel;
+    UIPanelDict.TryGetValue(UIPanelName, out panel);
+
+    if (panel == null)
+    {
+        //如果找不到，那么就去根据prefab去实例化面板
+        GameObject UIPrefab = UIPrefabDict[UIPanelName];
+        GameObject instPanel = GameObject.Instantiate&lt;GameObject&gt;(UIPrefab);
+        instPanel.name = UIPanelName;
+        UIBase UIBase = instPanel.GetComponent&lt;UIBase&gt;();
+        UIPanelDict.Add(UIPanelName, UIBase);
+        return UIBase;
+    }
+    else
+    {
+        return panel;
+    }
+
+}
+
+
+public void LoadAllUIPrefabs()
+{
+    TextAsset ta = Resources.Load&lt;TextAsset&gt;(&quot;UIPanelInfo&quot;);
+    string allInfo = ta.text;
+    string[] lineInfoArray = allInfo.Split(&apos;\n&apos;);
+    foreach (string lineInfo in lineInfoArray)
+    {
+        string[] itemInfoArray = lineInfo.Split(&apos;,&apos;);
+        foreach (string item in itemInfoArray)
+        {
+            string UIPath = ResourceDir + &quot;/&quot; + item;
+            GameObject UIPrefab = Resources.Load&lt;GameObject&gt;(UIPath);
+            if (UIPrefab)
+                UIPrefabDict.Add(item, UIPrefab);
+        }
+    }
+}
+}
+</code></pre><p><strong>GameRoot：</strong></p>
+<pre><code>using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameRoot : MonoBehaviour {
+
+/// &lt;summary&gt;
+/// 启动初始界面,挂在游戏物体之上,用来测试的代码，可以不要。
+/// &lt;/summary&gt;
+void Start () {
+
+    UIManager.Instance.PushPanel(&quot;OptionPanel&quot;);
+}
+
+}
+</code></pre><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p><strong>简单测试Demo：</strong><br>在Assets文件夹下新建Resources，Scripts，Scenes和UIFramework文件夹，Rescources文件夹下新建UI文件夹和UIPanelInfo.txt文件（UTF-8格式）。Hierarchy面板新建两个Canvas，改名为OptionPanel和StartPanel，在各自下面分别再建一个Panel，改改颜色大小之类的。OptionPanel下新建一个Start按钮。再新建两个脚本StartUI和OptionUI，都继承自UIBase，之后就可以复写父类的四个方法，分别可以控制UI面板的各个状态。OptionUI在添加一个点击事件–事件内容为push一个StartPanel，之后给Start按钮添加点击事件。</p>
+<p>txt文本填写<strong>StartPanel，OptionPanel</strong><br>具体格式和昨天的一样，也可以选择用json之类的</p>
+<p><img src="/assets/Img/20170412-Img-Operation1.jpg" alt=""></p>
+<p>上面只是试了下，因为blog实在写不了太多，太废时间了，具体怎么用，我可能会出个视频，也加强下自己对这个工具类的理解。其实如果UI面板比较少的话，没必要用框架，不过用了的话，整体确实清晰很多，也方便管理。</p>
+<p>今天，到这了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,95 +383,108 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://KaiXinChenYu.github.io/2017/04/12/20170412-Unity3D-UIFramework/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/11/20170411-Unity3D-DataLoad/" class="archive-article-date">
-  	<time datetime="2017-04-11T00:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/11/20170411-Unity3D-DataLoad/">Unity3D数据读取--简单Txt格式读取</a>
-    </h1>
+    <a href="/2017/04/11/20170411-Unity3D-DataLoad/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Unity3D数据读取--简单Txt格式读取
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/10/20170410-Diary-Beginning/" class="archive-article-date">
-  	<time datetime="2017-04-10T11:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/10/20170410-Diary-Beginning/">技术之路从此开始</a>
-    </h1>
-  
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'kaixinchenyu-github-io'; // required: replace example with your forum shortname
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">成长之路</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
 
 
           </div>
@@ -302,8 +507,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
