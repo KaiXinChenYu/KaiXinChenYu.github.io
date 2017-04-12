@@ -17,7 +17,7 @@
 <meta property="og:description" content="自己参照网上的UI框架，简单改了下，并且用到了昨天的txt文本读取。只做了个简单的测试，可能存在一些问题。">
 <meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170412-Img-Title.jpg">
 <meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170412-Img-Operation.jpg">
-<meta property="og:updated_time" content="2017-04-12T05:48:48.335Z">
+<meta property="og:updated_time" content="2017-04-12T06:03:55.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity3D简易UI框架（工具类）">
 <meta name="twitter:description" content="自己参照网上的UI框架，简单改了下，并且用到了昨天的txt文本读取。只做了个简单的测试，可能存在一些问题。">
@@ -224,7 +224,7 @@ public static UIManager Instance
         return _instance;
     }
 }
-
+//构造函数中初始化，读取UI文件夹下的所有prefabs
 private UIManager()
 {
     LoadAllUIPrefabs();
@@ -307,9 +307,9 @@ private UIBase GetPanel(string UIPanelName)
     UIBase panel;
     UIPanelDict.TryGetValue(UIPanelName, out panel);
 
+    //如果找不到，就根据prefab去实例化面板
     if (panel == null)
-    {
-        //如果找不到，那么就去根据prefab去实例化面板
+    {            
         GameObject UIPrefab = UIPrefabDict[UIPanelName];
         GameObject instPanel = GameObject.Instantiate&lt;GameObject&gt;(UIPrefab);
         instPanel.name = UIPanelName;
@@ -324,7 +324,7 @@ private UIBase GetPanel(string UIPanelName)
 
 }
 
-
+//加载prefab的方法，存到字典中
 public void LoadAllUIPrefabs()
 {
     TextAsset ta = Resources.Load&lt;TextAsset&gt;(&quot;UIPanelInfo&quot;);
@@ -573,11 +573,11 @@ void Start () {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">成长之路</a>
+                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
+                <a href="javascript:void(0)" class="js-tag color5">成长之路</a>
               </li>
             
             <div class="clearfix"></div>
