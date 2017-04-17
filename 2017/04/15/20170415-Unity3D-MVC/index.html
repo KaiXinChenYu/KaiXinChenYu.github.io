@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="HappyChen博客">
 <meta property="og:description" content="一个用于Unity3D游戏开发的简易MVC框架，用于开发一些小型的游戏足够了，调理很清晰。框架来源是泰课在线上NickyMa讲师的保卫萝卜中的MVC框架，个人感觉非常不错的一篇教程，有兴趣可以去看看，网址：  http://www.taikr.com/course/308 ，我只是学习了一下，写这篇Blog也是为了再理一下思路和记录下来，方便以后使用。">
 <meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170415-Img-Title.jpg">
-<meta property="og:updated_time" content="2017-04-17T12:02:03.811Z">
+<meta property="og:updated_time" content="2017-04-17T13:20:05.597Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity3D简易MVC框架">
 <meta name="twitter:description" content="一个用于Unity3D游戏开发的简易MVC框架，用于开发一些小型的游戏足够了，调理很清晰。框架来源是泰课在线上NickyMa讲师的保卫萝卜中的MVC框架，个人感觉非常不错的一篇教程，有兴趣可以去看看，网址：  http://www.taikr.com/course/308 ，我只是学习了一下，写这篇Blog也是为了再理一下思路和记录下来，方便以后使用。">
@@ -224,8 +224,13 @@ protected void SendEvent(string eventName,object data=null)
     MVC.SendEvent(eventName,data);
 }
 }
-</code></pre><p><strong>Controller：</strong><br>    using System;<br>    using System.Collections.Generic;<br>    using System.Linq;<br>    using System.Text;</p>
-<pre><code>public abstract class Controller
+</code></pre><p><strong>Controller：</strong></p>
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+public abstract class Controller
 {
 //获取模型
 protected Model GetModel&lt;T&gt;()
@@ -560,7 +565,7 @@ public static void SendEvent(string eventName, object data =null)
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
+                <a href="javascript:void(0)" class="js-tag color5">成长之路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,7 +573,7 @@ public static void SendEvent(string eventName, object data =null)
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">成长之路</a>
+                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
               </li>
              
               <li class="article-tag-list-item">
