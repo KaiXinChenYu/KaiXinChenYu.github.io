@@ -6,17 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://KaiXinChenYu.github.io">
-  <title>Tag: Unity3D | HappyChen博客</title>
+  <title>Unity3D药品管理Demo | HappyChen博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="About Game">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HappyChen博客">
-<meta property="og:url" content="http://KaiXinChenYu.github.io/tags/Unity3D/index.html">
+  <meta name="description" content="自己抽空，随意开发了一个，不说代码质量了，非常简单的药品管理的系统Demo，只有一部分功能，后来感觉没啥用，就放弃不搞了，简单实现了注册和登录功能，还有数据库的查找及修改。具体开发用到的软件有PhotoServer服务器框架，MySQL数据库，和Unity3D开发客户端。">
+<meta name="keywords" content="Unity3D-Server">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity3D药品管理Demo">
+<meta property="og:url" content="http://KaiXinChenYu.github.io/2017/04/16/20170416-Unity3D-DrugManager/index.html">
 <meta property="og:site_name" content="HappyChen博客">
-<meta property="og:description" content="About Game">
+<meta property="og:description" content="自己抽空，随意开发了一个，不说代码质量了，非常简单的药品管理的系统Demo，只有一部分功能，后来感觉没啥用，就放弃不搞了，简单实现了注册和登录功能，还有数据库的查找及修改。具体开发用到的软件有PhotoServer服务器框架，MySQL数据库，和Unity3D开发客户端。">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170416-Img-Title.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170416-Img-Operation1.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170416-Img-Operation2.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170416-Img-Operation3.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170416-Img-Operation4.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170416-Img-Operation5.jpg">
+<meta property="og:updated_time" content="2017-04-17T13:13:56.090Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HappyChen博客">
-<meta name="twitter:description" content="About Game">
+<meta name="twitter:title" content="Unity3D药品管理Demo">
+<meta name="twitter:description" content="自己抽空，随意开发了一个，不说代码质量了，非常简单的药品管理的系统Demo，只有一部分功能，后来感觉没啥用，就放弃不搞了，简单实现了注册和登录功能，还有数据库的查找及修改。具体开发用到的软件有PhotoServer服务器框架，MySQL数据库，和Unity3D开发客户端。">
+<meta name="twitter:image" content="http://kaixinchenyu.github.io/assets/Img/20170416-Img-Title.jpg">
   
     <link rel="alternative" href="/atom.xml" title="HappyChen博客" type="application/atom+xml">
   
@@ -150,174 +159,160 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-20170416-Unity3D-DrugManager" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Unity3D药品管理Demo
+    </h1>
+  
+
+        
+        <a href="/2017/04/16/20170416-Unity3D-DrugManager/" class="archive-article-date">
+  	<time datetime="2017-04-16T03:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-16</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/Img/20170416-Img-Title.jpg" alt=""></p>
+<p>自己抽空，随意开发了一个，不说代码质量了，非常简单的药品管理的系统Demo，只有一部分功能，后来感觉没啥用，就放弃不搞了，简单实现了注册和登录功能，还有数据库的查找及修改。具体开发用到的软件有PhotoServer服务器框架，MySQL数据库，和Unity3D开发客户端。</p>
+<a id="more"></a>
+<h2 id="Unity3D部分"><a href="#Unity3D部分" class="headerlink" title="Unity3D部分"></a>Unity3D部分</h2><p>这部分主要是数据得显示，包括读出数据库信息显示在界面上，用户登录注册的界面显示等。更改IP可以进行局域网连接服务器，广域网没试过不知道。</p>
+<p><img src="/assets/Img/20170416-Img-Operation1.jpg" alt=""></p>
+<h2 id="PhotonServer部分"><a href="#PhotonServer部分" class="headerlink" title="PhotonServer部分"></a>PhotonServer部分</h2><p>这部分服务端的开发，主要通过 Visual Studio 2013 进行，在服务端连接数据库，和客户端交互。</p>
+<p><img src="/assets/Img/20170416-Img-Operation2.jpg" alt=""></p>
+<h2 id="MySQL部分"><a href="#MySQL部分" class="headerlink" title="MySQL部分"></a>MySQL部分</h2><p>这部分主要建立了几张表，用户表和药品表等。</p>
+<p><img src="/assets/Img/20170416-Img-Operation3.jpg" alt=""></p>
+<h2 id="测试部分"><a href="#测试部分" class="headerlink" title="测试部分"></a>测试部分</h2><p>实际测试，先打开MySQL服务，在打开photonserver服务器，最后unity中启动游戏，安卓端我也测试了下，只能说能用吧。。具体测试图如下：</p>
+<p><img src="/assets/Img/20170416-Img-Operation4.jpg" alt=""></p>
+<p><img src="/assets/Img/20170416-Img-Operation5.jpg" alt=""></p>
+<p>大概就是一个可以简单修改数据库的软件，只不过客户端是用unity开发而已。<br>代码比较乱，我就不分享了，网上高端物品管理系统很多很多。。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/15/20170415-Unity3D-MVC/" class="archive-article-date">
-  	<time datetime="2017-04-15T03:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/15/20170415-Unity3D-MVC/">Unity3D简易MVC框架</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Unity3D-Server</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://KaiXinChenYu.github.io/2017/04/16/20170416-Unity3D-DrugManager/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/14/20170414-Unity3D-Singleton/" class="archive-article-date">
-  	<time datetime="2017-04-14T04:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-14</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/14/20170414-Unity3D-Singleton/">Unity3D单例模板--通过继承简单实现单例</a>
-    </h1>
+    <a href="/2017/04/15/20170415-Unity3D-MVC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Unity3D简易MVC框架
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/12/20170412-Unity3D-UIFramework/" class="archive-article-date">
-  	<time datetime="2017-04-12T04:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/12/20170412-Unity3D-UIFramework/">Unity3D简易UI框架（工具类）</a>
-    </h1>
-  
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'kaixinchenyu-github-io'; // required: replace example with your forum shortname
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/11/20170411-Unity3D-DataLoad/" class="archive-article-date">
-  	<time datetime="2017-04-11T00:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/11/20170411-Unity3D-DataLoad/">Unity3D数据读取--简单Txt格式读取</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
 
 
           </div>
@@ -340,9 +335,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

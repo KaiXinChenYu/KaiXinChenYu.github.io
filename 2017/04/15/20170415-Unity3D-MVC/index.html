@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://KaiXinChenYu.github.io">
-  <title>Tag: Unity3D | HappyChen博客</title>
+  <title>Unity3D简易MVC框架 | HappyChen博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="About Game">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HappyChen博客">
-<meta property="og:url" content="http://KaiXinChenYu.github.io/tags/Unity3D/index.html">
+  <meta name="description" content="一个用于Unity3D游戏开发的简易MVC框架，用于开发一些小型的游戏足够了，调理很清晰。框架来源是泰课在线上NickyMa讲师的保卫萝卜中的MVC框架，个人感觉非常不错的一篇教程，有兴趣可以去看看，网址：  http://www.taikr.com/course/308 ，我只是学习了一下，写这篇Blog也是为了再理一下思路和记录下来，方便以后使用。">
+<meta name="keywords" content="Unity3D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity3D简易MVC框架">
+<meta property="og:url" content="http://KaiXinChenYu.github.io/2017/04/15/20170415-Unity3D-MVC/index.html">
 <meta property="og:site_name" content="HappyChen博客">
-<meta property="og:description" content="About Game">
+<meta property="og:description" content="一个用于Unity3D游戏开发的简易MVC框架，用于开发一些小型的游戏足够了，调理很清晰。框架来源是泰课在线上NickyMa讲师的保卫萝卜中的MVC框架，个人感觉非常不错的一篇教程，有兴趣可以去看看，网址：  http://www.taikr.com/course/308 ，我只是学习了一下，写这篇Blog也是为了再理一下思路和记录下来，方便以后使用。">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170415-Img-Title.jpg">
+<meta property="og:updated_time" content="2017-04-17T12:02:03.811Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HappyChen博客">
-<meta name="twitter:description" content="About Game">
+<meta name="twitter:title" content="Unity3D简易MVC框架">
+<meta name="twitter:description" content="一个用于Unity3D游戏开发的简易MVC框架，用于开发一些小型的游戏足够了，调理很清晰。框架来源是泰课在线上NickyMa讲师的保卫萝卜中的MVC框架，个人感觉非常不错的一篇教程，有兴趣可以去看看，网址：  http://www.taikr.com/course/308 ，我只是学习了一下，写这篇Blog也是为了再理一下思路和记录下来，方便以后使用。">
+<meta name="twitter:image" content="http://kaixinchenyu.github.io/assets/Img/20170415-Img-Title.jpg">
   
     <link rel="alternative" href="/atom.xml" title="HappyChen博客" type="application/atom+xml">
   
@@ -150,36 +154,206 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-20170415-Unity3D-MVC" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Unity3D简易MVC框架
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/15/20170415-Unity3D-MVC/" class="archive-article-date">
+
+        
+        <a href="/2017/04/15/20170415-Unity3D-MVC/" class="archive-article-date">
   	<time datetime="2017-04-15T03:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/15/20170415-Unity3D-MVC/">Unity3D简易MVC框架</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/Img/20170415-Img-Title.jpg" alt=""></p>
+<p>一个用于Unity3D游戏开发的简易MVC框架，用于开发一些小型的游戏足够了，调理很清晰。框架来源是泰课在线上NickyMa讲师的保卫萝卜中的MVC框架，个人感觉非常不错的一篇教程，有兴趣可以去看看，网址：  <strong><a href="http://www.taikr.com/course/308" target="_blank" rel="external">http://www.taikr.com/course/308</a></strong> ，我只是学习了一下，写这篇Blog也是为了再理一下思路和记录下来，方便以后使用。</p>
+<a id="more"></a>
+<h2 id="Unity3D中的操作"><a href="#Unity3D中的操作" class="headerlink" title="Unity3D中的操作"></a>Unity3D中的操作</h2><p>具体MVC的原理我就不讲了，Google一下，会有很多的介绍。直接讲代码书写，首先打开Unity3D，创建1个文件夹命名为MVC，再创建三个脚本，分别命名为Model，Controller，View。在新建一个脚本命名为MVC，用于管理Model，Controller，View这三个类，包括之间的事件发送，获取和注册。</p>
+<p><strong>Model：</strong></p>
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-        <div class="article-info info-on-right">
-          
+public abstract class Model
+{
+public abstract string Name { get; }
+
+protected void SendEvent(string eventName, object data = null)
+{
+    MVC.SendEvent(eventName,data);
+}
+}
+</code></pre><p><strong>View：</strong></p>
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Text;
+using UnityEngine;
+
+public abstract class View : MonoBehaviour
+{
+//视图标识
+public abstract string Name { get; }
+
+//关心事件列表
+public List&lt;string&gt; AttationEvents =new List&lt;string&gt;();
+
+//事件处理函数
+public abstract void HandleEvent(string eventName, object data);
+
+//获取模型
+protected Model GetModel&lt;T&gt;()
+    where   T : Model
+{
+    return MVC.GetModel&lt;T&gt;();
+}
+
+//发送消息
+
+protected void SendEvent(string eventName,object data=null)
+{
+    MVC.SendEvent(eventName,data);
+}
+}
+</code></pre><p><strong>Controller：</strong><br>    using System;<br>    using System.Collections.Generic;<br>    using System.Linq;<br>    using System.Text;</p>
+<pre><code>public abstract class Controller
+{
+//获取模型
+protected Model GetModel&lt;T&gt;()
+    where T : Model
+{
+    return MVC.GetModel&lt;T&gt;();
+}
+//获取视图
+protected View GetView&lt;T&gt;()
+    where T : View
+{
+    return MVC.GetView&lt;T&gt;();
+}
+
+protected void RegisterModel(Model model)
+{
+    MVC.RegisterModel(model);
+}
+
+protected void RegisterView(View view)
+{
+    MVC.RegisterView(view);
+}
+
+protected void RegisterController(string eventName, Type controllerType)
+{
+    MVC.RegisterController(eventName,controllerType);
+}
+
+//处理系统消息
+public abstract void Execute(object data);
+
+}
+</code></pre><p><strong>MVC：</strong></p>
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+public static class MVC
+{
+//存储MVC
+public static Dictionary&lt;string,Model&gt; Models =new Dictionary&lt;string, Model&gt;();//名字--模型
+public static Dictionary&lt;string, View&gt; Views = new Dictionary&lt;string, View&gt;();//名字--视图
+public static Dictionary&lt;string, Type&gt; CommandMap = new Dictionary&lt;string, Type&gt;();//事件名字--控制器类型
+
+//注册
+public static void RegisterModel(Model model)
+{
+    Models[model.Name] = model;
+}
+
+public static void RegisterView(View view)
+{
+    Views[view.Name] = view;
+
+}
+
+public static void RegisterController(string eventName, Type controllerType)
+{
+    CommandMap[eventName] = controllerType;
+}
+
+//获取
+public static Model GetModel&lt;T&gt;()
+    where T:Model
+{
+    foreach (Model m in Models.Values)
+    {
+        if (m is T)
+        {
+            return m;
+        }
+    }
+    return null;
+}
+
+public static View GetView&lt;T&gt;()
+    where T:View
+{
+    foreach (View v in Views.Values)
+    {
+        if (v is T)
+        {
+            return v;
+        }
+    }
+    return null;
+}
+
+
+//发送事件
+
+
+public static void SendEvent(string eventName, object data =null)
+{
+    //控制器响应时间
+    if (CommandMap.ContainsKey(eventName))
+    {
+        Type t = CommandMap[eventName];
+        Controller c = Activator.CreateInstance(t) as Controller;
+
+        //控制器执行
+        c.Execute(data);
+    }
+    //视图响应事件
+
+    foreach (View v in Views.Values)
+    {
+        if (v.AttationEvents.Contains((eventName)))
+        {
+            //视图响应事件
+            v.HandleEvent(eventName,data);
+        }
+    }
+}
+
+
+}
+</code></pre><p>代码的书写基本按照标题上的那张图片，今天就这么多吧，等有空，我做个Demo，讲下如何使用这个简单的MVC框架。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,133 +365,113 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://KaiXinChenYu.github.io/2017/04/15/20170415-Unity3D-MVC/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/14/20170414-Unity3D-Singleton/" class="archive-article-date">
-  	<time datetime="2017-04-14T04:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-14</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/14/20170414-Unity3D-Singleton/">Unity3D单例模板--通过继承简单实现单例</a>
-    </h1>
+    <a href="/2017/04/14/20170414-Unity3D-Singleton/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Unity3D单例模板--通过继承简单实现单例
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/16/20170416-Unity3D-DrugManager/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Unity3D药品管理Demo</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/12/20170412-Unity3D-UIFramework/" class="archive-article-date">
-  	<time datetime="2017-04-12T04:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/12/20170412-Unity3D-UIFramework/">Unity3D简易UI框架（工具类）</a>
-    </h1>
-  
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'kaixinchenyu-github-io'; // required: replace example with your forum shortname
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/11/20170411-Unity3D-DataLoad/" class="archive-article-date">
-  	<time datetime="2017-04-11T00:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/11/20170411-Unity3D-DataLoad/">Unity3D数据读取--简单Txt格式读取</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
 
 
           </div>
@@ -340,9 +494,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
