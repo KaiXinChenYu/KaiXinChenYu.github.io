@@ -17,7 +17,7 @@
 <meta property="og:description" content="这次是DesignMode系列的第二期，是书上第二章，关于策略模式的讲解，用一个实例-商店收银系统来说明这个模式的优势。开发软件Visual Studio2013，WPF开发。">
 <meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170523-Img-Title.jpg">
 <meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170523-Img-Operation.jpg">
-<meta property="og:updated_time" content="2017-05-23T11:19:48.841Z">
+<meta property="og:updated_time" content="2017-05-27T01:47:24.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式-策略模式">
 <meta name="twitter:description" content="这次是DesignMode系列的第二期，是书上第二章，关于策略模式的讲解，用一个实例-商店收银系统来说明这个模式的优势。开发软件Visual Studio2013，WPF开发。">
@@ -177,7 +177,7 @@
       
         <p><img src="/assets/Img/20170523-Img-Title.jpg" alt=""><br>这次是DesignMode系列的第二期，是书上第二章，关于策略模式的讲解，用一个实例-商店收银系统来说明这个模式的优势。<br>开发软件Visual Studio2013，WPF开发。</p>
 <a id="more"></a>
-<h2 id="运算逻辑"><a href="#运算逻辑" class="headerlink" title="运算逻辑"></a>运算逻辑</h2><p>打开VS新建项目，选择WPF应用，客户端代码可能存在问题，水平有限，高手忽略。<br>首先新建一个抽象类CashSuper.cs</p>
+<p>打开VS新建项目，选择WPF应用，客户端代码可能存在问题，水平有限，高手忽略。<br>首先新建一个抽象类CashSuper.cs</p>
 <pre><code>  abstract class CashSuper
 {
     public abstract double AcceptCash(double money);
@@ -410,6 +410,11 @@ class CashReturn:CashSuper
     </a>
   
   
+    <a href="/2017/05/27/20170527-DesignMode-Decorator/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式-装饰模式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
 </nav>
 
 
@@ -520,6 +525,10 @@ class CashReturn:CashSuper
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">成长之路</a>
               </li>
              
@@ -528,15 +537,11 @@ class CashReturn:CashSuper
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Unity3D-Server</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DesignMode</a>
+                <a href="javascript:void(0)" class="js-tag color3">AfterEffects</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,7 +549,7 @@ class CashReturn:CashSuper
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AfterEffects</a>
+                <a href="javascript:void(0)" class="js-tag color1">DesignMode</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://KaiXinChenYu.github.io">
-  <title>HappyChen博客</title>
+  <title>设计模式-装饰模式 | HappyChen博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="About Game">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HappyChen博客">
-<meta property="og:url" content="http://KaiXinChenYu.github.io/index.html">
+  <meta name="description" content="这次是DesignMode系列的第三期，是书上第六章，关于装饰模式的讲解，前两次一直用wpf，这次准备用unity来写这个简单实例，原理是一样的，只不过是客户端的改变。使用软件Visual Studio2013，Unity3D。">
+<meta name="keywords" content="DesignMode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式-装饰模式">
+<meta property="og:url" content="http://KaiXinChenYu.github.io/2017/05/27/20170527-DesignMode-Decorator/index.html">
 <meta property="og:site_name" content="HappyChen博客">
-<meta property="og:description" content="About Game">
+<meta property="og:description" content="这次是DesignMode系列的第三期，是书上第六章，关于装饰模式的讲解，前两次一直用wpf，这次准备用unity来写这个简单实例，原理是一样的，只不过是客户端的改变。使用软件Visual Studio2013，Unity3D。">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170527-Img-Title.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170527-Img-Operation.jpg">
+<meta property="og:updated_time" content="2017-05-27T01:59:01.763Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HappyChen博客">
-<meta name="twitter:description" content="About Game">
+<meta name="twitter:title" content="设计模式-装饰模式">
+<meta name="twitter:description" content="这次是DesignMode系列的第三期，是书上第六章，关于装饰模式的讲解，前两次一直用wpf，这次准备用unity来写这个简单实例，原理是一样的，只不过是客户端的改变。使用软件Visual Studio2013，Unity3D。">
+<meta name="twitter:image" content="http://kaixinchenyu.github.io/assets/Img/20170527-Img-Title.jpg">
   
     <link rel="alternative" href="/atom.xml" title="HappyChen博客" type="application/atom+xml">
   
@@ -150,16 +155,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-20170527-DesignMode-Decorator" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-20170527-DesignMode-Decorator" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/27/20170527-DesignMode-Decorator/">设计模式-装饰模式</a>
+    <h1 class="article-title" itemprop="name">
+      设计模式-装饰模式
     </h1>
   
 
@@ -173,9 +176,132 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="/assets/Img/20170527-Img-Title.jpg" alt=""><br>这次是DesignMode系列的第三期，是书上第六章，关于装饰模式的讲解，前两次一直用wpf，这次准备用unity来写这个简单实例，原理是一样的，只不过是客户端的改变。<br>使用软件Visual Studio2013，Unity3D。</p>
-        
-          <a class="article-more-a" href="/2017/05/27/20170527-DesignMode-Decorator/#more">more >></a>
-        
+<a id="more"></a>
+<p>打开Unity3D新建项目，新建C#脚本Person类：</p>
+<pre><code>using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+ class Person  {
+
+ public Person()
+ {
+
+ }
+
+ private string name;
+ public Person(string name)
+ {
+     this.name = name;
+ }
+ public virtual void Show()
+ {
+     Debug.Log(&quot;装扮的&quot;+name);
+ }
+</code></pre><p>}</p>
+<p>再新建服饰父类Finery，和子类Coat，Dress,Hair,Hat,Necklace,Shirt,Shoes,Skirt,Socks</p>
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+
+class Finery:Person
+{
+protected Person component;
+
+public void Decorate(Person component)
+{
+    this.component = component;
+}
+
+public override void Show()
+{
+    if (component != null)
+    {
+        component.Show();
+    }
+}
+}
+---------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using UnityEngine;
+
+class Coat:Finery
+{
+public override void Show()
+{
+    Debug.Log(&quot;外套&quot;);
+    base.Show();
+}
+}
+---------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using UnityEngine;
+
+class Dress:Finery
+{
+public override void Show()
+{
+    Debug.Log(&quot;连衣裙&quot;);
+    base.Show();
+}
+}
+---------------------
+..........
+后面的类基本类似
+</code></pre><p>最后建立客户端类WearCloths，继承MonoBehavior</p>
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using UnityEngine;
+
+public class WearCloths :MonoBehaviour
+{
+
+void Start()
+{
+    Person kaixin = new Person(&quot;开心&quot;);
+    Debug.Log(&quot;\n第一种装扮：&quot;);
+
+    Coat coat = new Coat();
+    Hair hair = new Hair();
+    Skirt skirt = new Skirt();
+
+    coat.Decorate(kaixin);
+    hair.Decorate(coat);
+    skirt.Decorate(hair);
+
+    skirt.Show();
+
+    Debug.Log(&quot;\n第二种装扮：&quot;);
+
+    Dress dress = new Dress();
+    Hat hat = new Hat();
+    Necklace necklace = new Necklace();
+    Shirt shirt = new Shirt();
+    Socks socks = new Socks();
+
+    dress.Decorate(kaixin);
+    hat.Decorate(dress);
+    necklace.Decorate(hat);
+    shirt.Decorate(necklace);
+    socks.Decorate(shirt);
+
+    socks.Show();
+
+}
+}
+</code></pre><p>控制台输出显示：</p>
+<p><img src="/assets/Img/20170527-Img-Operation.jpg" alt=""></p>
+
       
 
       
@@ -197,11 +323,58 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/27/20170527-DesignMode-Decorator/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://KaiXinChenYu.github.io/2017/05/27/20170527-DesignMode-Decorator/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
@@ -209,9 +382,20 @@
 </article>
 
 
-
-
-
+  
+<nav id="article-nav">
+  
+    <a href="/2017/05/23/20170523-DesignMode-StrategyMode/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          设计模式-策略模式
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
 
 
@@ -219,483 +403,20 @@
 
 
   
-    <article id="post-20170523-DesignMode-StrategyMode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+    <div class="duoshuo"></div>
+  
+
+
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/23/20170523-DesignMode-StrategyMode/">设计模式-策略模式</a>
-    </h1>
-  
+        <section class="youyan" id="comments">
+  <div id="uyan_frame"  style="padding: 0px 30px 0px 46px;"></div>
+  <script src="http://v2.uyan.cc/code/uyan.js?uid=2131516"></script>
+</section>
 
-        
-        <a href="/2017/05/23/20170523-DesignMode-StrategyMode/" class="archive-article-date">
-  	<time datetime="2017-05-23T11:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-23</time>
-</a>
-        
-      </header>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/Img/20170523-Img-Title.jpg" alt=""><br>这次是DesignMode系列的第二期，是书上第二章，关于策略模式的讲解，用一个实例-商店收银系统来说明这个模式的优势。<br>开发软件Visual Studio2013，WPF开发。</p>
-        
-          <a class="article-more-a" href="/2017/05/23/20170523-DesignMode-StrategyMode/#more">more >></a>
-        
-      
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">DesignMode</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/23/20170523-DesignMode-StrategyMode/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-20170522-DesignMode-FactoryMode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/22/20170522-DesignMode-FactoryMode/">设计模式-简单工厂模式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/22/20170522-DesignMode-FactoryMode/" class="archive-article-date">
-  	<time datetime="2017-05-22T11:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/Img/20170522-Img-Title.jpg" alt=""><br>DesignMode这个系列是我准备记录下，我最近阅读的一本书–大话设计模式，会用到书里的实例，也会加入一些自己的体会。这一期是书的第一章，关于简单工厂设计模式，具体用一个计算器的实例来简单说明这种设计模式的好处。<br>开发软件Visual Studio2013，WPF开发。</p>
-        
-          <a class="article-more-a" href="/2017/05/22/20170522-DesignMode-FactoryMode/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">DesignMode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/22/20170522-DesignMode-FactoryMode/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-20170418-WebApplication-WebSite" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/18/20170418-WebApplication-WebSite/">Asp.Net和Access数据库开发网站</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/18/20170418-WebApplication-WebSite/" class="archive-article-date">
-  	<time datetime="2017-04-18T01:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/Img/20170418-Img-Title.jpg" alt=""></p>
-<p>今天分享下，我前段时间花了一个星期，写的一个简单的网站，网址是：<strong><a href="http://www.dongliguangyou.cn">http://www.dongliguangyou.cn</a></strong>后台的数据管理基本是我开发的，前端的CSS样式借用了别人的模板。</p>
-        
-          <a class="article-more-a" href="/2017/04/18/20170418-WebApplication-WebSite/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">WebApplication</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/18/20170418-WebApplication-WebSite/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-20170417-AfterEffect-SkyReplace" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/17/20170417-AfterEffect-SkyReplace/">使用AfterEffects替换视频天空</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/17/20170417-AfterEffect-SkyReplace/" class="archive-article-date">
-  	<time datetime="2017-04-17T13:30:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/Img/20170417-Img-Title.jpg" alt=""></p>
-<p>今天，实在事情太多了，而且最近有个开发游戏的计划，这次绝对绝对不会半路放弃了，所以就分享一个我前段时间做的关于AfterEffects的视频吧。<br>网盘地址：<a href="http://pan.baidu.com/s/1qY57wb6" target="_blank" rel="external">http://pan.baidu.com/s/1qY57wb6</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">AfterEffects</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/17/20170417-AfterEffect-SkyReplace/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-20170416-Unity3D-DrugManager" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/16/20170416-Unity3D-DrugManager/">Unity3D药品管理Demo</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/16/20170416-Unity3D-DrugManager/" class="archive-article-date">
-  	<time datetime="2017-04-16T03:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/Img/20170416-Img-Title.jpg" alt=""></p>
-<p>自己抽空，随意开发了一个，不说代码质量了，非常简单的药品管理的系统Demo，只有一部分功能，后来感觉没啥用，就放弃不搞了，简单实现了注册和登录功能，还有数据库的查找及修改。具体开发用到的软件有PhotonServer服务器框架，MySQL数据库，和Unity3D开发客户端。</p>
-        
-          <a class="article-more-a" href="/2017/04/16/20170416-Unity3D-DrugManager/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Unity3D-Server</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/16/20170416-Unity3D-DrugManager/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-20170415-Unity3D-MVC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/15/20170415-Unity3D-MVC/">Unity3D简易MVC框架</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/15/20170415-Unity3D-MVC/" class="archive-article-date">
-  	<time datetime="2017-04-15T03:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/Img/20170415-Img-Title.jpg" alt=""></p>
-<p>一个用于Unity3D游戏开发的简易MVC框架，用于开发一些小型的游戏足够了，调理很清晰。框架来源是泰课在线上NickyMa讲师的保卫萝卜中的MVC框架，个人感觉非常不错的一篇教程，有兴趣可以去看看，网址：  <strong><a href="http://www.taikr.com/course/308">http://www.taikr.com/course/308</a></strong> ，我只是学习了一下，写这篇Blog也是为了再理一下思路和记录下来，方便以后使用。</p>
-        
-          <a class="article-more-a" href="/2017/04/15/20170415-Unity3D-MVC/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/15/20170415-Unity3D-MVC/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-20170414-Unity3D-Singleton" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/14/20170414-Unity3D-Singleton/">Unity3D单例模板--通过继承简单实现单例</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/14/20170414-Unity3D-Singleton/" class="archive-article-date">
-  	<time datetime="2017-04-14T04:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/Img/20170414-Img-Title.jpg" alt=""></p>
-<p>一个单例的模板，通过继承这个工具类，在Unity中轻松实现单例，不过这个单例模板还是存在一些问题，比如不适合多线程。具体较为完整的单例模式介绍，可以参考这篇文章下面这篇简书上的文章，关于Java的单例  <strong><a href="http://www.jianshu.com/p/eb30a388c5fc">http://www.jianshu.com/p/eb30a388c5fc</a></strong> ，文章将单例模式讲解的很清楚，C#的单例模式也基本差不多。</p>
-        
-          <a class="article-more-a" href="/2017/04/14/20170414-Unity3D-Singleton/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/14/20170414-Unity3D-Singleton/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -717,8 +438,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
