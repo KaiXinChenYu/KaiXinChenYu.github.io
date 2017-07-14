@@ -6,22 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://KaiXinChenYu.github.io">
-  <title>设计模式-简单工厂模式 | HappyChen博客</title>
+  <title>Archives: 2017/7 | HappyChen博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DesignMode这个系列是我准备记录下，我最近阅读的一本书–大话设计模式，会用到书里的实例，也会加入一些自己的体会。这一期是书的第一章，关于简单工厂设计模式，具体用一个计算器的实例来简单说明这种设计模式的好处。开发软件Visual Studio2013，WPF开发。">
-<meta name="keywords" content="DesignMode">
-<meta property="og:type" content="article">
-<meta property="og:title" content="设计模式-简单工厂模式">
-<meta property="og:url" content="http://KaiXinChenYu.github.io/2017/05/22/20170522-DesignMode-FactoryMode/index.html">
+  <meta name="description" content="About Game">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HappyChen博客">
+<meta property="og:url" content="http://KaiXinChenYu.github.io/archives/2017/07/index.html">
 <meta property="og:site_name" content="HappyChen博客">
-<meta property="og:description" content="DesignMode这个系列是我准备记录下，我最近阅读的一本书–大话设计模式，会用到书里的实例，也会加入一些自己的体会。这一期是书的第一章，关于简单工厂设计模式，具体用一个计算器的实例来简单说明这种设计模式的好处。开发软件Visual Studio2013，WPF开发。">
-<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170522-Img-Title.jpg">
-<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170522-Img-Operation.jpg">
-<meta property="og:updated_time" content="2017-05-27T01:47:34.493Z">
+<meta property="og:description" content="About Game">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式-简单工厂模式">
-<meta name="twitter:description" content="DesignMode这个系列是我准备记录下，我最近阅读的一本书–大话设计模式，会用到书里的实例，也会加入一些自己的体会。这一期是书的第一章，关于简单工厂设计模式，具体用一个计算器的实例来简单说明这种设计模式的好处。开发软件Visual Studio2013，WPF开发。">
-<meta name="twitter:image" content="http://kaixinchenyu.github.io/assets/Img/20170522-Img-Title.jpg">
+<meta name="twitter:title" content="HappyChen博客">
+<meta name="twitter:description" content="About Game">
   
     <link rel="alternative" href="/atom.xml" title="HappyChen博客" type="application/atom+xml">
   
@@ -155,307 +150,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-20170522-DesignMode-FactoryMode" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      设计模式-简单工厂模式
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/07/14/20170714-DesignMode-Proxy/" class="archive-article-date">
+  	<time datetime="2017-07-14T04:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-14</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/07/14/20170714-DesignMode-Proxy/">设计模式-装饰模式</a>
     </h1>
   
 
-        
-        <a href="/2017/05/22/20170522-DesignMode-FactoryMode/" class="archive-article-date">
-  	<time datetime="2017-05-22T11:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/Img/20170522-Img-Title.jpg" alt=""><br>DesignMode这个系列是我准备记录下，我最近阅读的一本书–大话设计模式，会用到书里的实例，也会加入一些自己的体会。这一期是书的第一章，关于简单工厂设计模式，具体用一个计算器的实例来简单说明这种设计模式的好处。<br>开发软件Visual Studio2013，WPF开发。</p>
-<a id="more"></a>
-<p>打开VS新建项目，选择WPF应用，客户端代码肯定是有问题的，水平有限，高手忽略，主要分享的是后台的工厂模式的代码。<br>首先新建一个父类Operation.cs</p>
-<pre><code> public class Operation
-  {
-    private double _numberA = 0;
-    private double _numberB = 0;
-
-    public double NumberA
-    {
-        get { return _numberA; }
-        set { _numberA = value; }
-    }
-
-    public double NumberB
-    {
-        get { return _numberB; }
-        set { _numberB = value; }
-    }
-
-    public virtual double GetResult()//用于子类复写
-    {
-        double result = 0;
-        return result;
-    }
-}
-</code></pre><p>再新建四个子类继承自Operation，分别为OperationAdd.cs,OperationSub.cs,<br>OperationMul.cs,OperationDiv.cs</p>
-<pre><code>class OperationAdd:Operation
-{
-    public override double GetResult()
-    {
-        double result = 0;
-        result = NumberA + NumberB;
-        return result;
-    }
-}
-class OperationDiv:Operation
-{
-    public override double GetResult()
-    {
-        double result = 0;
-        if (NumberB == 0)
-        {
-            throw new Exception(&quot;除数不能为0&quot;);
-        }
-        result = NumberA/NumberB;
-        return result;
-    }
-}
- class OperationMul:Operation
-{
-    public override double GetResult()
-    {
-        double result = 0;
-        result = NumberA*NumberB;
-        return result;
-    }
-}
-class OperationSub:Operation
-{
-    public override double GetResult()
-    {
-        double result = 0;
-        result = NumberA - NumberB;
-        return result;
-    }
-}
-</code></pre><p>最后建立工厂类OperationFactory.cs，用来实例化对象，使用工厂模式可以分离内部计算逻辑和客户端的耦合，客户端界面与内部计算逻辑分开。</p>
-<pre><code> public class OperationFactory
-{
-    public static Operation CreateOperation(string operate)
-    {
-        Operation oper = null;
-        switch (operate)
-        {
-            case &quot;+&quot;:
-                oper = new OperationAdd();
-                break;
-            case &quot;-&quot;:
-                oper = new OperationSub();
-                break;
-            case &quot;*&quot;:
-                oper = new OperationMul();
-                break;
-            case &quot;/&quot;:
-                oper = new OperationDiv();
-                break;
-            default:
-                throw new Exception(&quot;算法不存在&quot;);
-                break;
-        }
-        return oper;
-    }
-}
-</code></pre><p>客户端调用</p>
-<pre><code>Operation oper;
-oper = OperationFactory.CreateOperation(&quot;+&quot;);
-oper.NumberA = 1;
-oper.NumberB = 2;
-double result oper.GetResult();
-</code></pre><p>工厂模式到就结束了，可以调到最后看下测试图。</p>
-<p>客户端代码MainWindow.xaml.cs，如果不按错应该没问题，按错的话。。。下面的代码可以忽略。。。</p>
-<pre><code>public enum OperationType
-{
-    Add,
-    Sub,
-    Mul,
-    Div
-
-}
-/// &lt;summary&gt;
-/// MainWindow.xaml 的交互逻辑
-/// &lt;/summary&gt;
-public partial class MainWindow : Window
-{
-    public MainWindow()
-    {
-        InitializeComponent();
-    }
-
-    public double numberA=0;
-    public double numberB=0;
-    public string operate=&quot;&quot;;
-    public OperationType OperationType = OperationType.Add; 
-
-    private void Button1_Click(object sender, RoutedEventArgs e)
-    {
-        Label1.Content += Button1.Content.ToString();
-    }
-    private void Button2_Click(object sender, RoutedEventArgs e)
-    {
-        Label1.Content += Button2.Content.ToString();
-    }
-    private void Button3_Click(object sender, RoutedEventArgs e)
-    {
-        Label1.Content += Button3.Content.ToString();
-    }
-    private void Button4_Click(object sender, RoutedEventArgs e)
-    {
-        Label1.Content += Button4.Content.ToString();
-    }
-
-    private void Button5_Click(object sender, RoutedEventArgs e)
-    {
-        Label1.Content += Button5.Content.ToString();
-    }
-
-    private void Button6_Click(object sender, RoutedEventArgs e)
-    {
-        Label1.Content += Button6.Content.ToString();
-    }
-
-    private void Button7_Click(object sender, RoutedEventArgs e)
-    {
-        Label1.Content += Button7.Content.ToString();
-    }
-
-    private void Button8_Click(object sender, RoutedEventArgs e)
-    {
-        Label1.Content += Button8.Content.ToString();
-    }
-
-    private void Button9_Click(object sender, RoutedEventArgs e)
-    {
-        Label1.Content += Button9.Content.ToString();
-    }
-
-    private void Button0_Click(object sender, RoutedEventArgs e)
-    {
-            Label1.Content += Button0.Content.ToString();
-    }
-
-    private void ButtonPoint_Click(object sender, RoutedEventArgs e)
-    {
-        if (Label1.Content.ToString().Contains(&quot;.&quot;))
-        {
-            return;
-        }
-        else
-        {
-            Label1.Content += ButtonPoint.Content.ToString();
-        }
-    }
-
-    private void ButtonC_Click(object sender, RoutedEventArgs e)
-    {
-        Label1.Content = &quot;&quot;;
-        numberA = 0;
-        numberB = 0;
-        operate = &quot;&quot;;
-    }
-
-    private void ButtonAdd_Click(object sender, RoutedEventArgs e)
-    {
-        numberA = double.Parse(Label1.Content.ToString());
-        Label1.Content = &quot;&quot;; 
-        OperationType = OperationType.Add;
-    }
-
-    private void ButtonSub_Click(object sender, RoutedEventArgs e)
-    {
-        numberA = double.Parse(Label1.Content.ToString());
-        Label1.Content = &quot;&quot;;
-        OperationType = OperationType.Sub;
-    }
-
-    private void ButtonMul_Click(object sender, RoutedEventArgs e)
-    {
-        numberA = double.Parse(Label1.Content.ToString());
-        Label1.Content = &quot;&quot;;
-        OperationType = OperationType.Mul;
-    }
-
-    private void ButtonDiv_Click(object sender, RoutedEventArgs e)
-    {
-        numberA = double.Parse(Label1.Content.ToString());
-        Label1.Content = &quot;&quot;;
-        OperationType = OperationType.Div;
-    }
-
-    private void ButtonResult_Click(object sender, RoutedEventArgs e)
-    {
-        numberB = double.Parse(Label1.Content.ToString());
-        Operation oper = null;
-        switch (OperationType)
-        {
-                case OperationType.Add:
-                oper = OperationFactory.CreateOperation(&quot;+&quot;);
-                break;
-                case OperationType.Sub:
-                oper = OperationFactory.CreateOperation(&quot;-&quot;);
-                break;
-                case OperationType.Mul:
-                oper = OperationFactory.CreateOperation(&quot;*&quot;);
-                break;
-                case OperationType.Div:
-                oper = OperationFactory.CreateOperation(&quot;/&quot;);
-                break;
-        }
-        oper.NumberA = this.numberA;
-        oper.NumberB = this.numberB;
-        double result = oper.GetResult();
-        Label1.Content = result;
-    }      
-}  
-</code></pre><p>MainWindow.xaml下放置这么多按钮。。</p>
-<pre><code> &lt;Window x:Class=&quot;CalcApp.MainWindow&quot;
-    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
-    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
-    Title=&quot;计算器&quot; Height=&quot;400&quot; Width=&quot;350&quot;&gt;
-&lt;Grid Name=&quot;CalcGrid&quot;&gt;
-    &lt;Label Name=&quot;Label1&quot; Content=&quot;&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;10,30,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;322&quot; HorizontalContentAlignment=&quot;Right&quot; BorderThickness=&quot;0&quot;/&gt;
-    &lt;Button Name=&quot;Button1&quot; Content=&quot;1&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;62,120,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;Button1_Click&quot; /&gt;
-    &lt;Button Name=&quot;Button2&quot; Content=&quot;2&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;102,120,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;Button2_Click&quot; /&gt;
-    &lt;Button Name=&quot;Button3&quot; Content=&quot;3&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;142,120,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;Button3_Click&quot; /&gt;
-    &lt;Button Name=&quot;Button4&quot; Content=&quot;4&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;62,160,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;Button4_Click&quot; /&gt;
-    &lt;Button Name=&quot;Button5&quot; Content=&quot;5&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;102,160,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;Button5_Click&quot; /&gt;
-    &lt;Button Name=&quot;Button6&quot; Content=&quot;6&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;142,160,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;Button6_Click&quot; /&gt;
-    &lt;Button Name=&quot;Button7&quot; Content=&quot;7&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;62,200,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;Button7_Click&quot; /&gt;
-    &lt;Button Name=&quot;Button8&quot; Content=&quot;8&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;102,200,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;Button8_Click&quot; /&gt;
-    &lt;Button Name=&quot;Button9&quot; Content=&quot;9&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;142,200,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;Button9_Click&quot; /&gt;
-    &lt;Button Name=&quot;Button0&quot; Content=&quot;0&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;62,240,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;Button0_Click&quot; /&gt;
-    &lt;Button Name=&quot;ButtonPoint&quot; Content=&quot;.&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;102,240,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;ButtonPoint_Click&quot; /&gt;
-    &lt;Button Name=&quot;ButtonC&quot; Content=&quot;C&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;102,306,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;ButtonC_Click&quot; /&gt;
-    &lt;Button Name=&quot;ButtonResult&quot; Content=&quot;=&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;142,306,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;ButtonResult_Click&quot; /&gt;
-    &lt;Button Name=&quot;ButtonAdd&quot; Content=&quot;+&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;206,120,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;ButtonAdd_Click&quot; /&gt;
-    &lt;Button Name=&quot;ButtonSub&quot; Content=&quot;-&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;206,160,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;ButtonSub_Click&quot; /&gt;
-    &lt;Button Name=&quot;ButtonMul&quot; Content=&quot;*&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;206,200,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;ButtonMul_Click&quot; /&gt;
-    &lt;Button Name=&quot;ButtonDiv&quot; Content=&quot;/&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;206,240,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;30&quot; Height=&quot;30&quot; Click=&quot;ButtonDiv_Click&quot; /&gt;
-&lt;/Grid&gt;
-&lt;/Window&gt;
-</code></pre><p>下面是测试图：<br><img src="/assets/Img/20170522-Img-Operation.jpg" alt=""></p>
-<p>如果要添加其他的方法，比如开根号，sin，cos等计算方法，只需要，新加一个类，并且在工厂模式中添加对象实例化的方法就行，基本与客户端分离。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -467,108 +191,19 @@ public partial class MainWindow : Window
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://KaiXinChenYu.github.io/2017/05/22/20170522-DesignMode-FactoryMode/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/04/18/20170418-WebApplication-WebSite/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Asp.Net和Access数据库开发网站
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/05/23/20170523-DesignMode-StrategyMode/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">设计模式-策略模式</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
-
-
-
-
-
-
-  
-    <div class="duoshuo"></div>
-  
-
-
 
     
-        <section class="youyan" id="comments">
-  <div id="uyan_frame"  style="padding: 0px 30px 0px 46px;"></div>
-  <script src="http://v2.uyan.cc/code/uyan.js?uid=2131516"></script>
-</section>
-
-    
-
-
 
 
           </div>
@@ -591,8 +226,8 @@ public partial class MainWindow : Window
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
