@@ -6,21 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://KaiXinChenYu.github.io">
-  <title>使用AfterEffects替换视频天空 | HappyChen博客</title>
+  <title>设计模式-工厂方法模式 | HappyChen博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天，实在事情太多了，而且最近有个开发游戏的计划，这次绝对绝对不会半路放弃了，所以就分享一个我前段时间做的关于AfterEffects的视频吧。网盘地址：http://pan.baidu.com/s/1qY57wb6">
-<meta name="keywords" content="AfterEffects">
+  <meta name="description" content="这次是DesignMode系列的第五期，是书上第八章，关于工厂方法模式的讲解，依然使用unity来写这个实例。使用软件Visual Studio2013，Unity3D。">
+<meta name="keywords" content="DesignMode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用AfterEffects替换视频天空">
-<meta property="og:url" content="http://KaiXinChenYu.github.io/2017/04/17/20170417-AfterEffect-SkyReplace/index.html">
+<meta property="og:title" content="设计模式-工厂方法模式">
+<meta property="og:url" content="http://KaiXinChenYu.github.io/2017/07/14/20170720-DesignMode-FactoryMethodMode/index.html">
 <meta property="og:site_name" content="HappyChen博客">
-<meta property="og:description" content="今天，实在事情太多了，而且最近有个开发游戏的计划，这次绝对绝对不会半路放弃了，所以就分享一个我前段时间做的关于AfterEffects的视频吧。网盘地址：http://pan.baidu.com/s/1qY57wb6">
-<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170417-Img-Title.jpg">
-<meta property="og:updated_time" content="2017-04-17T13:34:58.018Z">
+<meta property="og:description" content="这次是DesignMode系列的第五期，是书上第八章，关于工厂方法模式的讲解，依然使用unity来写这个实例。使用软件Visual Studio2013，Unity3D。">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170720-Img-Title.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170714-Img-Operation.jpg">
+<meta property="og:updated_time" content="2017-07-20T02:57:54.272Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用AfterEffects替换视频天空">
-<meta name="twitter:description" content="今天，实在事情太多了，而且最近有个开发游戏的计划，这次绝对绝对不会半路放弃了，所以就分享一个我前段时间做的关于AfterEffects的视频吧。网盘地址：http://pan.baidu.com/s/1qY57wb6">
-<meta name="twitter:image" content="http://kaixinchenyu.github.io/assets/Img/20170417-Img-Title.jpg">
+<meta name="twitter:title" content="设计模式-工厂方法模式">
+<meta name="twitter:description" content="这次是DesignMode系列的第五期，是书上第八章，关于工厂方法模式的讲解，依然使用unity来写这个实例。使用软件Visual Studio2013，Unity3D。">
+<meta name="twitter:image" content="http://kaixinchenyu.github.io/assets/Img/20170720-Img-Title.jpg">
   
     <link rel="alternative" href="/atom.xml" title="HappyChen博客" type="application/atom+xml">
   
@@ -154,28 +155,131 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-20170417-AfterEffect-SkyReplace" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-20170720-DesignMode-FactoryMethodMode" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      使用AfterEffects替换视频天空
+      设计模式-工厂方法模式
     </h1>
   
 
         
-        <a href="/2017/04/17/20170417-AfterEffect-SkyReplace/" class="archive-article-date">
-  	<time datetime="2017-04-17T13:30:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-17</time>
+        <a href="/2017/07/14/20170720-DesignMode-FactoryMethodMode/" class="archive-article-date">
+  	<time datetime="2017-07-14T04:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/Img/20170417-Img-Title.jpg" alt=""></p>
-<p>今天，实在事情太多了，而且最近有个开发游戏的计划，这次绝对绝对不会半路放弃了，所以就分享一个我前段时间做的关于AfterEffects的视频吧。<br>网盘地址：<a href="http://pan.baidu.com/s/1qY57wb6" target="_blank" rel="external">http://pan.baidu.com/s/1qY57wb6</a></p>
+        <p><img src="/assets/Img/20170720-Img-Title.jpg" alt=""><br>这次是DesignMode系列的第五期，是书上第八章，关于工厂方法模式的讲解，依然使用unity来写这个实例。<br>使用软件Visual Studio2013，Unity3D。</p>
+<a id="more"></a>
+<p>打开Unity3D新建项目，新建C#脚本IChangeText类：</p>
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+//定义接口，使得我和代理都能有这个功能
+interface IChangeText
+{
+    string ChangeText();
+
+}
+</code></pre><p>再新建三个类分别为WantToChangeTex</p>
+<pre><code>using System;
+using System.Collections;
+using System.Collections.Generic;
+
+//定义text，我要修改的text
+public class WantToChangeText
+{
+    private string text;
+
+    public string Text
+    {
+        get { return text; }
+        set
+        {
+            text = value;
+        }
+    }
+
+}
+</code></pre><p>ThisIsMe类</p>
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+//定义我，我有改遍text的功能
+public class ThisIsMe:IChangeText
+{
+    //引用改变的text类
+    WantToChangeText wantToChangeText;
+    //构造方法，引用代理的实例
+    public ThisIsMe(WantToChangeText wantToChangeText)
+    {
+        this.wantToChangeText = wantToChangeText;
+    }
+    //我间接改变UItext
+    public string ChangeText()
+    {
+        wantToChangeText.Text = &quot;ThisIsMe Changed byProxy&quot;;
+        return wantToChangeText.Text;
+    }
+}
+</code></pre><p>ThisIsProxy类</p>
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+//代理类，实现接口
+public class ThisIsProxy : IChangeText
+{
+    private ThisIsMe me;
+    //实例化我
+    public ThisIsProxy(WantToChangeText wantToChangeText)
+    {
+        me = new ThisIsMe(wantToChangeText);
+    }
+    //代理引用我的方法改变文字，并且返回
+    public string ChangeText()
+    {
+      return  me.ChangeText();
+    }
+}
+</code></pre><p>最后定义一个类继承MonoBeahavior，用来挂载在游戏物体上</p>
+<pre><code>using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class MainTool : MonoBehaviour
+{
+    //在组件面板把textUI拖上去
+    public Text textUI;
+
+
+    void Start()
+    {
+        //实例化改变的文字
+        WantToChangeText wantToChangeText = new WantToChangeText();
+        wantToChangeText.Text = textUI.text;
+        //通过代理改变文字
+        ThisIsProxy proxy = new ThisIsProxy(wantToChangeText);
+        string newText = proxy.ChangeText();
+        //跟新UI
+        textUI.text = newText;
+    }
+}
+</code></pre><p>控制台输出显示：</p>
+<p><img src="/assets/Img/20170714-Img-Operation.jpg" alt=""></p>
+<p>代理大概就是这样一个原理，在这里我为了实现一个很小的功能，却用了大量的代码，看似很不值得，但是有的时候一个良好的代码在不知不觉中，会让你很舒服。</p>
 
       
 
@@ -189,7 +293,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">AfterEffects</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">DesignMode</a>
         		</li>
       		
 		</ul>
@@ -245,7 +349,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://KaiXinChenYu.github.io/2017/04/17/20170417-AfterEffect-SkyReplace/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://KaiXinChenYu.github.io/2017/07/14/20170720-DesignMode-FactoryMethodMode/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -260,20 +364,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/16/20170416-Unity3D-DrugManager/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/07/14/20170714-DesignMode-Proxy/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Unity3D药品管理Demo
+          设计模式-装饰模式
         
       </div>
     </a>
   
-  
-    <a href="/2017/04/18/20170418-WebApplication-WebSite/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Asp.Net和Access数据库开发网站</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
