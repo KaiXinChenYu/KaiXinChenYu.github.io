@@ -6,29 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://KaiXinChenYu.github.io">
-  <title>MMORpg登录与注册(1)---虚拟主机和域名申请 | HappyChen博客</title>
+  <title>MMORpg登录与注册(2)---Unity3D客户端开发 | HappyChen博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这次准备做一个系列，主要是关于如何开发一个联网的游戏，登录和注册需要与服务器交互，并且把数据写入服务器中的数据库。 应该会有3期，包含虚拟主机和域名申请（域名可已不需要，域名申请需要进行备案），游戏客户端开发，与数据库交互的PHP脚本的编写。 使用软件Visual Studio2013，Unity3D，EditPlus或者其他方便编写php脚本的软件，cuteftp或者其他能通过ftp上传网站文">
+  <meta name="description" content="客户端就以我正在做的一个简易聊天软件为例，只讲下前面的登录和注册的验证功能。聊天系统是直接用的photon提供的一个插件，叫做photon chat，有兴趣可以去研究看看，免费的可以允许同时在线10个人，以此插件为基础，做一个聊天软件很轻松。 当然也可以直接用自己网站上的数据库作为聊天中介（这是我自己的理解，不知道对不对，原则上实现相互通信的没有问题的），不过尽量不要这么做，太占用数据库空间了。">
 <meta name="keywords" content="Unity3D">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MMORpg登录与注册(1)---虚拟主机和域名申请">
-<meta property="og:url" content="http://KaiXinChenYu.github.io/2017/09/19/20170919-Unity3D-InternetLogin/index.html">
+<meta property="og:title" content="MMORpg登录与注册(2)---Unity3D客户端开发">
+<meta property="og:url" content="http://KaiXinChenYu.github.io/2017/09/20/20170920-Unity3D-InternetLogin2/index.html">
 <meta property="og:site_name" content="HappyChen博客">
-<meta property="og:description" content="这次准备做一个系列，主要是关于如何开发一个联网的游戏，登录和注册需要与服务器交互，并且把数据写入服务器中的数据库。 应该会有3期，包含虚拟主机和域名申请（域名可已不需要，域名申请需要进行备案），游戏客户端开发，与数据库交互的PHP脚本的编写。 使用软件Visual Studio2013，Unity3D，EditPlus或者其他方便编写php脚本的软件，cuteftp或者其他能通过ftp上传网站文">
-<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170919-Img-Title.jpg">
-<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170919-Img-Operation.jpg">
-<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170919-Img-Operation1.jpg">
-<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170919-Img-Operation2.jpg">
-<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170919-Img-Operation3.jpg">
-<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170919-Img-Operation4.jpg">
-<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170919-Img-Operation5.jpg">
-<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170919-Img-Operation6.jpg">
-<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170919-Img-Operation7.jpg">
-<meta property="og:updated_time" content="2017-09-19T08:40:41.764Z">
+<meta property="og:description" content="客户端就以我正在做的一个简易聊天软件为例，只讲下前面的登录和注册的验证功能。聊天系统是直接用的photon提供的一个插件，叫做photon chat，有兴趣可以去研究看看，免费的可以允许同时在线10个人，以此插件为基础，做一个聊天软件很轻松。 当然也可以直接用自己网站上的数据库作为聊天中介（这是我自己的理解，不知道对不对，原则上实现相互通信的没有问题的），不过尽量不要这么做，太占用数据库空间了。">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170920-Img-Title.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170920-Img-Operation.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170920-Img-Operation1.jpg">
+<meta property="og:updated_time" content="2017-09-19T09:36:00.474Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MMORpg登录与注册(1)---虚拟主机和域名申请">
-<meta name="twitter:description" content="这次准备做一个系列，主要是关于如何开发一个联网的游戏，登录和注册需要与服务器交互，并且把数据写入服务器中的数据库。 应该会有3期，包含虚拟主机和域名申请（域名可已不需要，域名申请需要进行备案），游戏客户端开发，与数据库交互的PHP脚本的编写。 使用软件Visual Studio2013，Unity3D，EditPlus或者其他方便编写php脚本的软件，cuteftp或者其他能通过ftp上传网站文">
-<meta name="twitter:image" content="http://kaixinchenyu.github.io/assets/Img/20170919-Img-Title.jpg">
+<meta name="twitter:title" content="MMORpg登录与注册(2)---Unity3D客户端开发">
+<meta name="twitter:description" content="客户端就以我正在做的一个简易聊天软件为例，只讲下前面的登录和注册的验证功能。聊天系统是直接用的photon提供的一个插件，叫做photon chat，有兴趣可以去研究看看，免费的可以允许同时在线10个人，以此插件为基础，做一个聊天软件很轻松。 当然也可以直接用自己网站上的数据库作为聊天中介（这是我自己的理解，不知道对不对，原则上实现相互通信的没有问题的），不过尽量不要这么做，太占用数据库空间了。">
+<meta name="twitter:image" content="http://kaixinchenyu.github.io/assets/Img/20170920-Img-Title.jpg">
   
     <link rel="alternative" href="/atom.xml" title="HappyChen博客" type="application/atom+xml">
   
@@ -162,50 +156,228 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-20170919-Unity3D-InternetLogin" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-20170920-Unity3D-InternetLogin2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      MMORpg登录与注册(1)---虚拟主机和域名申请
+      MMORpg登录与注册(2)---Unity3D客户端开发
     </h1>
   
 
         
-        <a href="/2017/09/19/20170919-Unity3D-InternetLogin/" class="archive-article-date">
-  	<time datetime="2017-09-19T07:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-19</time>
+        <a href="/2017/09/20/20170920-Unity3D-InternetLogin2/" class="archive-article-date">
+  	<time datetime="2017-09-20T09:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/Img/20170919-Img-Title.jpg" alt=""></p>
-<p>这次准备做一个系列，主要是关于如何开发一个联网的游戏，登录和注册需要与服务器交互，并且把数据写入服务器中的数据库。</p>
-<p>应该会有3期，包含虚拟主机和域名申请（域名可已不需要，域名申请需要进行备案），游戏客户端开发，与数据库交互的PHP脚本的编写。</p>
-<p>使用软件Visual Studio2013，Unity3D，EditPlus或者其他方便编写php脚本的软件，cuteftp或者其他能通过ftp上传网站文件的软件。</p>
+        <p><img src="/assets/Img/20170920-Img-Title.jpg" alt=""></p>
+<p>客户端就以我正在做的一个简易聊天软件为例，只讲下前面的登录和注册的验证功能。聊天系统是直接用的photon提供的一个插件，叫做photon chat，有兴趣可以去研究看看，免费的可以允许同时在线10个人，以此插件为基础，做一个聊天软件很轻松。</p>
+<p>当然也可以直接用自己网站上的数据库作为聊天中介（这是我自己的理解，不知道对不对，原则上实现相互通信的没有问题的），不过尽量不要这么做，太占用数据库空间了。</p>
 <a id="more"></a>
-<h2 id="具体流程"><a href="#具体流程" class="headerlink" title="具体流程"></a>具体流程</h2><p>如果是要申请免费的网站空间并且网站可以自己随意更改，可以到github上申请一个，并且通过git上传网站文件，具体怎么做可以百度，我这不多说了。</p>
-<p>因为要使用到mysql和php，所以我这边使用的是收费的虚拟空间。我不知道github上能不能做到，我没试过，大家可以研究一下。</p>
-<p><strong>虚拟空间购买</strong></p>
-<p>我选的虚拟空间是在西部数码，大家可以选其他的，应该是差不多的，然后选一个最便宜的空间，我买了一年的。</p>
-<p><img src="/assets/Img/20170919-Img-Operation.jpg" alt=""></p>
-<p><strong>购买域名（可以不买）</strong></p>
-<p>这个很容易，找个域名网站，买一个就行，西部数码上买也可以。<br>然后把域名和网站地址关联起来就行。具体教程在西部数码的教程上都有，我这不多说了。</p>
-<p><img src="/assets/Img/20170919-Img-Operation1.jpg" alt=""></p>
-<p><strong>虚拟主机配置</strong></p>
-<p>点击管理虚拟主机，首先把php版本选一下，选一个默认的就行，然后把mysql数据库打开。</p>
-<p><img src="/assets/Img/20170919-Img-Operation2.jpg" alt=""></p>
-<p><img src="/assets/Img/20170919-Img-Operation3.jpg" alt=""></p>
-<p><img src="/assets/Img/20170919-Img-Operation4.jpg" alt=""></p>
-<p><img src="/assets/Img/20170919-Img-Operation5.jpg" alt=""></p>
-<p><strong>cuteftp连接网站</strong></p>
-<p>这个时候可以把你的网站上传上去，然后就能通过浏览器访问了。而之后的php脚本也会放置在这个网站空间内，用来与网站数据库交互。空间里面的QQChat和MMORPG文件夹就是我用来放置php脚本的。wwwroot目录就是网站跟目录。</p>
-<p><img src="/assets/Img/20170919-Img-Operation6.jpg" alt=""></p>
-<p><img src="/assets/Img/20170919-Img-Operation7.jpg" alt=""></p>
-<p>好，大概就是这么多，写的比较简单，如果有什么问题都可以联系我。</p>
+<p>##客户端开发##</p>
+<p><strong>UI部分</strong></p>
+<p>这部分脚本和UI搭建之类的就不多说了，我这边贴出我的最后效果。</p>
+<p><img src="/assets/Img/20170920-Img-Operation.jpg" alt=""></p>
+<p><strong>web连接部分</strong></p>
+<p>在Hierarchy面板加入两个空物体命名随意，分别挂载Login和Register脚本</p>
+<p><img src="/assets/Img/20170920-Img-Operation1.jpg" alt=""></p>
+<p>Login脚本如下：</p>
+<pre><code>using System.Collections;   
+using UnityEngine;
+
+public class Login : MonoBehaviour {
+
+string formText = &quot;&quot;;                 //用来获取返回值
+string formUser;                    //获取用户名
+string formPassword;                //获取密码
+
+public string URL = &quot;http://www.dongliguangyou.cn/QQChat/login.php&quot;;         //这边是改变你的网站地址的，我的是http://www.dongliguangyou.cn，你们改成自己的就行
+public string hash = &quot;hashcode&quot;;                                                 //相当于加密吧
+
+void Start()
+{
+
+}
+ //这个方法是用来获取数据的，在unity中可以通过消息机制，来做这件事
+public void GetData(string data)
+{
+    string[] dataS = data.Split(&apos;:&apos;);
+    formUser = dataS[0];
+    formPassword = dataS[1];
+    StartCoroutine(LoginGame());
+}
+
+IEnumerator LoginGame()
+{
+    WWWForm form = new WWWForm();
+    form.AddField(&quot;myform_hash&quot;, hash);     //要和php脚本中的一致
+    form.AddField(&quot;myform_user&quot;, formUser);
+    form.AddField(&quot;myform_pass&quot;, formPassword);
+    WWW w = new WWW(URL, form);
+    yield return w;
+    if (w.error != null)
+    {
+        Debug.LogError(&quot;网络问题: &quot; + w.error);     
+    }
+    else
+    {
+        formText = w.text;     //返回php脚本中的信息
+        GameObject.Find(&quot;GameScripts&quot;).GetComponent(&quot;LoginAndRegister&quot;).SendMessage(&quot;AnswerLogin&quot;, formText);//将获取的返回值，也就是登录成功或者登陆失败的消息返回，传递给AnswerLogin来处理，是否允许登录。
+        w.Dispose(); //清除form
+    }
+}
+}
+</code></pre><p>Register脚本，同样的道理，我就不写注释了：</p>
+<pre><code>using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Register : MonoBehaviour {
+
+
+string formText = &quot;&quot;;            
+string formUser;                    
+string formPassword;       
+
+public string URL = &quot;http://www.dongliguangyou.cn/QQChat/register.php&quot;;         
+public string hash = &quot;hashcode&quot;;                                                 
+
+void Start()
+{
+
+}
+
+public void GetData(string data)
+{
+    string[] dataS = data.Split(&apos;:&apos;);
+    formUser = dataS[0];
+    formPassword = dataS[1];
+    StartCoroutine(SignUpGame());
+}
+
+IEnumerator SignUpGame()
+{
+    WWWForm form = new WWWForm();
+    form.AddField(&quot;myform_hash&quot;, hash);                             
+    form.AddField(&quot;myform_user&quot;, formUser);
+    form.AddField(&quot;myform_pass&quot;, formPassword);
+    WWW w = new WWW(URL, form);
+    yield return w;
+    if (w.error != null)
+    {
+        Debug.LogError(&quot;网络问题: &quot; + w.error);
+    }
+    else
+    {
+        formText = w.text;                                 
+        GameObject.Find(&quot;GameScripts&quot;).GetComponent(&quot;LoginAndRegister&quot;).SendMessage(&quot;AnswerRegister&quot;, formText);
+        w.Dispose();                                 
+    }
+}
+
+}
+</code></pre><p>最后我还是贴上LoginAndRegister这个脚本吧，这是用来处理登录和注册请求以及返回值。</p>
+<pre><code>using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class LoginAndRegister : MonoBehaviour {
+
+public InputField userName;
+public InputField password;
+
+public InputField newUserName;
+public InputField newPassword;
+public InputField confirmPassword;
+
+public GameObject registerPanel;
+public GameObject createPanel;
+public GameObject waitPage;
+
+public void OnClickLogin()  //请求登录
+{
+    GameObject.Find(&quot;WebLogin&quot;).GetComponent(&quot;Login&quot;).SendMessage(&quot;GetData&quot;, userName.text + &quot;:&quot; + password.text);
+}
+
+public void OnClickRegister()
+{
+    registerPanel.SetActive(true);
+}
+
+public void OnClickConfirmRegister()  //请求注册
+{
+    if (newPassword.text != confirmPassword.text)
+    {
+        Debug.Log(&quot;两次密码不一致&quot;);
+        return;
+    }
+    else
+    {
+        GameObject.Find(&quot;WebRegister&quot;).GetComponent(&quot;Register&quot;).SendMessage(&quot;GetData&quot;, newUserName.text + &quot;:&quot; + newPassword.text);
+
+    }
+
+}
+public void AnswerLogin(string ans)   //处理登录返回值
+{
+    ans = ans.Remove(0, 1);
+    if (ans.Split(&apos;:&apos;)[0] == &quot;Correct&quot;)
+    {
+        GameInfo._instance.userName = userName.text;
+        if (rem)
+        {
+            PlayerPrefs.SetString(&quot;User&quot;, userName.text);
+        }
+        if (ans.Split(&apos;:&apos;)[1] == &quot;0&quot;)
+        {                            //If Player hasn&apos;t any characters, &quot;CreateCharacter&quot; scene will be loaded
+            //Application.LoadLevel(&quot;CreateCharacter&quot;);
+            //TODO新账号起名nickname
+            Debug.Log(&quot;新账号,创建名字&quot;);
+            createPanel.gameObject.SetActive(true);
+
+        }
+        else
+        {
+            GameInfo._instance.nickName = PlayerPrefs.GetString(&quot;NickName&quot;);
+            waitPage.SetActive(true);
+            Invoke(&quot;EnterApp&quot;, 1.0f);
+            Debug.Log(&quot;进入账户&quot;);
+            //直接进入账号
+            //Application.LoadLevel(&quot;ChooseCharacter&quot;);
+        }
+    } 
+    if (ans.Split(&apos;:&apos;)[0] == &quot;Wrong&quot;)
+    {
+        Debug.Log(&quot;登录错误&quot;);
+        //错误进入错误页面
+        //StartCoroutine(&quot;ErrorWindow&quot;, &quot;wrongData&quot;);
+    }
+}
+
+public void AnswerRegister(string ans)  //处理注册返回值
+{
+    ans = ans.Remove(0, 1);
+    if (ans == &quot;Done&quot;)
+    {
+        registerPanel.SetActive(false);
+    }
+    else
+    {
+        Debug.Log(&quot;登录错误&quot;);
+        //StartCoroutine(&quot;ErrorWindow&quot;, &quot;alreadyBeen&quot;);
+    }
+}
+
+}
+</code></pre><p>客户端的主要代码部分就这些，主要是与php脚本的交互，通过www发送和接受信息。下次就是最后一部分php代码部分，和实际测试效果。</p>
 
       
 
@@ -275,7 +447,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://KaiXinChenYu.github.io/2017/09/19/20170919-Unity3D-InternetLogin/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://KaiXinChenYu.github.io/2017/09/20/20170920-Unity3D-InternetLogin2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -290,20 +462,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/14/20170714-DesignMode-Proxy/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/09/19/20170919-Unity3D-InternetLogin/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          设计模式-代理模式
+          MMORpg登录与注册(1)---虚拟主机和域名申请
         
       </div>
     </a>
   
-  
-    <a href="/2017/09/20/20170920-Unity3D-InternetLogin2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MMORpg登录与注册(2)---Unity3D客户端开发</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
