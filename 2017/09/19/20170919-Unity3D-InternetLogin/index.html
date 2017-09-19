@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170919-Img-Operation5.jpg">
 <meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170919-Img-Operation6.jpg">
 <meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170919-Img-Operation7.jpg">
-<meta property="og:updated_time" content="2017-09-19T08:33:39.393Z">
+<meta property="og:updated_time" content="2017-09-19T08:40:41.764Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MMORpg登录与注册(1)---虚拟主机和域名申请">
 <meta name="twitter:description" content="这次准备做一个系列，主要是关于如何开发一个联网的游戏，登录和注册需要与服务器交互，并且把数据写入服务器中的数据库。 应该会有3期，包含虚拟主机和域名申请（域名可已不需要，域名申请需要进行备案），游戏客户端开发，与数据库交互的PHP脚本的编写。 使用软件Visual Studio2013，Unity3D，EditPlus或者其他方便编写php脚本的软件，cuteftp或者其他能通过ftp上传网站文">
@@ -187,18 +187,22 @@
 <p>应该会有3期，包含虚拟主机和域名申请（域名可已不需要，域名申请需要进行备案），游戏客户端开发，与数据库交互的PHP脚本的编写。</p>
 <p>使用软件Visual Studio2013，Unity3D，EditPlus或者其他方便编写php脚本的软件，cuteftp或者其他能通过ftp上传网站文件的软件。</p>
 <a id="more"></a>
-<p>如果是要申请免费的网站空间并且网站可以自己随意更改，可以到github上申请一个，并且通过git上传网站文件，具体怎么做可以百度，我这不多说了。</p>
+<h2 id="具体流程"><a href="#具体流程" class="headerlink" title="具体流程"></a>具体流程</h2><p>如果是要申请免费的网站空间并且网站可以自己随意更改，可以到github上申请一个，并且通过git上传网站文件，具体怎么做可以百度，我这不多说了。</p>
 <p>因为要使用到mysql和php，所以我这边使用的是收费的虚拟空间。我不知道github上能不能做到，我没试过，大家可以研究一下。</p>
-<p>第一是虚拟空间购买，我选的虚拟空间是在西部数码，大家可以选其他的，应该是差不多的，然后选一个最便宜的空间，我买了一年的。</p>
+<p><strong>虚拟空间购买</strong></p>
+<p>我选的虚拟空间是在西部数码，大家可以选其他的，应该是差不多的，然后选一个最便宜的空间，我买了一年的。</p>
 <p><img src="/assets/Img/20170919-Img-Operation.jpg" alt=""></p>
-<p>第二步是购买域名（可以不买），这个很容易，找个域名网站，买一个就行，西部数码上买也可以。<br>然后把域名和网站地址关联起来就行。具体教程在西部数码的教程上都有，我这不多说了。</p>
+<p><strong>购买域名（可以不买）</strong></p>
+<p>这个很容易，找个域名网站，买一个就行，西部数码上买也可以。<br>然后把域名和网站地址关联起来就行。具体教程在西部数码的教程上都有，我这不多说了。</p>
 <p><img src="/assets/Img/20170919-Img-Operation1.jpg" alt=""></p>
-<p>第三步是把虚拟主机配置一下，点击管理虚拟主机，首先把php版本选一下，选一个默认的就行，然后把mysql数据库打开。</p>
+<p><strong>虚拟主机配置</strong></p>
+<p>点击管理虚拟主机，首先把php版本选一下，选一个默认的就行，然后把mysql数据库打开。</p>
 <p><img src="/assets/Img/20170919-Img-Operation2.jpg" alt=""></p>
 <p><img src="/assets/Img/20170919-Img-Operation3.jpg" alt=""></p>
 <p><img src="/assets/Img/20170919-Img-Operation4.jpg" alt=""></p>
 <p><img src="/assets/Img/20170919-Img-Operation5.jpg" alt=""></p>
-<p>第四部是通过cuteftp连接你的网站，这个时候可以把你的网站上传上去，然后就能通过浏览器访问了。而之后的php脚本也会放置在这个网站空间内，用来与网站数据库交互。空间里面的QQChat和MMORPG文件夹就是我用来放置php脚本的。wwwroot目录就是网站跟目录。</p>
+<p><strong>cuteftp连接网站</strong></p>
+<p>这个时候可以把你的网站上传上去，然后就能通过浏览器访问了。而之后的php脚本也会放置在这个网站空间内，用来与网站数据库交互。空间里面的QQChat和MMORPG文件夹就是我用来放置php脚本的。wwwroot目录就是网站跟目录。</p>
 <p><img src="/assets/Img/20170919-Img-Operation6.jpg" alt=""></p>
 <p><img src="/assets/Img/20170919-Img-Operation7.jpg" alt=""></p>
 <p>好，大概就是这么多，写的比较简单，如果有什么问题都可以联系我。</p>
@@ -410,15 +414,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Unity3D-Server</a>
+                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -427,6 +427,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">WebApplication</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Unity3D-Server</a>
               </li>
              
               <li class="article-tag-list-item">
