@@ -6,22 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://KaiXinChenYu.github.io">
-  <title>设计模式-策略模式 | HappyChen博客</title>
+  <title>MMORpg登录与注册(3)---PHP脚本和测试 | HappyChen博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这次是DesignMode系列的第二期，是书上第二章，关于策略模式的讲解，用一个实例-商店收银系统来说明这个模式的优势。开发软件Visual Studio2013，WPF开发。">
-<meta name="keywords" content="DesignMode">
+  <meta name="description" content="最后一部分是PHP脚本相关和实际的测试效果，其实这部分对于MMORpg来说，只是一个与数据库的交互罢了，人物位置，动作，攻击之类的同步，大家可以用photon cloud来实现。">
+<meta name="keywords" content="Unity3D">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式-策略模式">
-<meta property="og:url" content="http://KaiXinChenYu.github.io/2017/05/23/20170523-DesignMode-StrategyMode/index.html">
+<meta property="og:title" content="MMORpg登录与注册(3)---PHP脚本和测试">
+<meta property="og:url" content="http://KaiXinChenYu.github.io/2017/09/21/20170921-Unity3D-InternetLogin3/index.html">
 <meta property="og:site_name" content="HappyChen博客">
-<meta property="og:description" content="这次是DesignMode系列的第二期，是书上第二章，关于策略模式的讲解，用一个实例-商店收银系统来说明这个模式的优势。开发软件Visual Studio2013，WPF开发。">
-<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170523-Img-Title.jpg">
-<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170523-Img-Operation.jpg">
-<meta property="og:updated_time" content="2017-05-27T01:47:24.105Z">
+<meta property="og:description" content="最后一部分是PHP脚本相关和实际的测试效果，其实这部分对于MMORpg来说，只是一个与数据库的交互罢了，人物位置，动作，攻击之类的同步，大家可以用photon cloud来实现。">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170921-Img-Title.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170921-Img-Operation.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170921-Img-Operation1.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170921-Img-Operation2.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170921-Img-Operation3.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170921-Img-Operation4.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170921-Img-Operation5.jpg">
+<meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170921-Img-Operation6.jpg">
+<meta property="og:updated_time" content="2017-09-19T12:09:10.359Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式-策略模式">
-<meta name="twitter:description" content="这次是DesignMode系列的第二期，是书上第二章，关于策略模式的讲解，用一个实例-商店收银系统来说明这个模式的优势。开发软件Visual Studio2013，WPF开发。">
-<meta name="twitter:image" content="http://kaixinchenyu.github.io/assets/Img/20170523-Img-Title.jpg">
+<meta name="twitter:title" content="MMORpg登录与注册(3)---PHP脚本和测试">
+<meta name="twitter:description" content="最后一部分是PHP脚本相关和实际的测试效果，其实这部分对于MMORpg来说，只是一个与数据库的交互罢了，人物位置，动作，攻击之类的同步，大家可以用photon cloud来实现。">
+<meta name="twitter:image" content="http://kaixinchenyu.github.io/assets/Img/20170921-Img-Title.jpg">
   
     <link rel="alternative" href="/atom.xml" title="HappyChen博客" type="application/atom+xml">
   
@@ -155,167 +161,176 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-20170523-DesignMode-StrategyMode" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-20170921-Unity3D-InternetLogin3" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      设计模式-策略模式
+      MMORpg登录与注册(3)---PHP脚本和测试
     </h1>
   
 
         
-        <a href="/2017/05/23/20170523-DesignMode-StrategyMode/" class="archive-article-date">
-  	<time datetime="2017-05-23T11:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-23</time>
+        <a href="/2017/09/21/20170921-Unity3D-InternetLogin3/" class="archive-article-date">
+  	<time datetime="2017-09-21T13:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/Img/20170523-Img-Title.jpg" alt=""><br>这次是DesignMode系列的第二期，是书上第二章，关于策略模式的讲解，用一个实例-商店收银系统来说明这个模式的优势。<br>开发软件Visual Studio2013，WPF开发。</p>
+        <p><img src="/assets/Img/20170921-Img-Title.jpg" alt=""></p>
+<p>最后一部分是PHP脚本相关和实际的测试效果，其实这部分对于MMORpg来说，只是一个与数据库的交互罢了，人物位置，动作，攻击之类的同步，大家可以用photon cloud来实现。</p>
 <a id="more"></a>
-<p>打开VS新建项目，选择WPF应用，客户端代码可能存在问题，水平有限，高手忽略。<br>首先新建一个抽象类CashSuper.cs</p>
-<pre><code>  abstract class CashSuper
-{
-    public abstract double AcceptCash(double money);
-}
-</code></pre><p>再新建三个子类实现CashSuper，分别为CashNormal.cs,CashRebate.cs,<br>CashReturn.cs</p>
-<pre><code>class CashNormal:CashSuper
-{      
-    public override double AcceptCash(double money)
-    {
-        return money;
-    }
-}
-class CashRebate :CashSuper
-{
-    private double moneyRebate;//定义打折数量
-    //构造方法中，实例化时，传入打折率
-    public CashRebate(string moneyRebate)
-    {
-        this.moneyRebate = double.Parse(moneyRebate);
-    }
-    public override double AcceptCash(double money)
-    {
-        return money*moneyRebate;
-    }
-}
-class CashReturn:CashSuper
-{
-    private double moneyCondition=0.0d;//分别输入满多少返利多少
-    private double moneyReturn=0.0d;
+<h2 id="数据库交互"><a href="#数据库交互" class="headerlink" title="数据库交互"></a>数据库交互</h2><p><strong>PHP脚本</strong></p>
+<p>首先是login.php：</p>
+<pre><code>&lt;?php
+// 连接 =========================================================
+$host = &quot;www.dongliguangyou.cn&quot;;             //主机
+$user = &quot;dongliguangyou&quot;;     //一般是root  数据库账号  你的虚拟主机数据库账号
+$password = &quot;123456&quot;;     //你的虚拟主机数据库密码
+$dbname = &quot;dongliguangyou&quot;;     //你的数据库的名称
 
-    public CashReturn(string moneyCondition, string moneyReturn)
-    {
-        this.moneyCondition = double.Parse(moneyCondition);
-        this.moneyReturn = double.Parse(moneyReturn);
-    }
-    public override double AcceptCash(double money)
-    {
-        double result = money;
-        if (money &gt; moneyCondition)
-        {
-            result = money - Math.Floor(money/moneyCondition)*moneyReturn;
+mysql_connect($host, $user, $password) or die(&quot;Cant connect into database&quot;);
+mysql_select_db($dbname)or die(&quot;Cant connect into database&quot;);
 
+//=========================================================================
+
+function anti_injection_login_senha($sql, $formUse = true)
+{
+$sql = preg_replace(&quot;/(from|select|insert|delete|where|drop table|show tables|,|&apos;|#|\*|--|\\\\)/i&quot;,&quot;&quot;,$sql);
+$sql = trim($sql);
+$sql = strip_tags($sql);
+if(!$formUse || !get_magic_quotes_gpc())
+  $sql = addslashes($sql);
+  $sql = md5(trim($sql));
+return $sql;
+}
+
+function anti_injection_login($sql, $formUse = true)
+{
+$sql = preg_replace(&quot;/(from|select|insert|delete|where|drop table|show tables|,|&apos;|#|\*|--|\\\\)/i&quot;,&quot;&quot;,$sql);
+$sql = trim($sql);
+$sql = strip_tags($sql);
+if(!$formUse || !get_magic_quotes_gpc())
+  $sql = addslashes($sql);
+return $sql;
+}
+
+// =============================================================================
+$unityHash = anti_injection_login($_POST[&quot;myform_hash&quot;]);
+$phpHash = &quot;hashcode&quot;;                                             //和客户端的要一样
+$user = anti_injection_login($_POST[&quot;myform_user&quot;]);             
+$pass = anti_injection_login_senha($_POST[&quot;myform_pass&quot;]);
+
+if(!$user || !$pass) {
+echo &quot;用户名和密码不能为空&quot;;
+} else {
+if ($unityHash != $phpHash){
+    echo &quot;HASH code 和客户端游戏的不同&quot;;
+} else {
+    $SQL = &quot;SELECT * FROM qquser WHERE username = &apos;&quot; . $user . &quot;&apos;&quot;;        // 选择所有用户，并比较密码是否正确
+    $result_id = @mysql_query($SQL) or die(&quot;DATABASE ERROR!&quot;);//查询数据库获取ID
+    $total = mysql_num_rows($result_id);//根据ID获取行
+    if($total) {
+        $datas = @mysql_fetch_array($result_id);
+        if(!strcmp($pass, $datas[&quot;password&quot;])) {
+            echo &quot;Correct:&quot;;
+            $sql2 = &quot;SELECT newuser FROM qquser WHERE username = &apos;&quot; . $user . &quot;&apos;&quot;;
+            $result_id2 = @mysql_query($sql2) or die(&quot;DATABASE ERROR!&quot;);
+            while($row = mysql_fetch_array($result_id2))
+            {
+                echo $row[&apos;newuser&apos;]; 
+            }
+        } else {
+            echo &quot;Wrong&quot;;
         }
-        return result;
+    } else {
+        echo &quot;Data invalid - cant find name.&quot;;
     }
 }
-</code></pre><p>最后建立类CashContext.cs，在其中实例化对象，结合了工厂模式，客户端与后台逻辑基本分开，使得客户端只需要认识CashContext这个类就行。</p>
-<pre><code> class CashContext
+}
+
+//关闭mysql
+mysql_close();
+?&gt;
+</code></pre><p>register.php代码如下：</p>
+<pre><code>&lt;?php
+// 连接 =========================================================
+$host = &quot;www.dongliguangyou.cn&quot;;             
+$user = &quot;dongliguangyou&quot;;     
+$password = &quot;123456&quot;;     
+$dbname = &quot;dongliguangyou&quot;;     
+
+mysql_connect($host, $user, $password) or die(&quot;Cant connect into database&quot;);
+mysql_select_db($dbname)or die(&quot;Cant connect into database&quot;);
+
+// =========================================================================
+
+function anti_injection_login_senha($sql, $formUse = true)
 {
-    private CashSuper cs=null;
-
-    public CashContext(string type)
-    {
-        switch (type)
-        {
-            case &quot;正常收费&quot;:
-                CashNormal cs1= new CashNormal();
-                cs = cs1;
-                break;
-            case &quot;满300返200&quot;:
-                CashReturn cs2 = new CashReturn(&quot;300&quot;,&quot;200&quot;);
-                cs = cs2;
-                break;
-            case &quot;打8折&quot;:
-                CashRebate cs3 = new CashRebate(&quot;0.8&quot;);
-                cs = cs3;
-                break;
-        }
-    }
-
-    public double GetResult(double money)
-    {
-        return cs.AcceptCash(money);
-    }
+$sql = preg_replace(&quot;/(from|select|insert|delete|where|drop table|show tables|,|&apos;|#|\*|--|\\\\)/i&quot;,&quot;&quot;,$sql);
+$sql = trim($sql);
+$sql = strip_tags($sql);
+if(!$formUse || !get_magic_quotes_gpc())
+  $sql = addslashes($sql);
+return $sql;
 }
-</code></pre><p>客户端代码</p>
-<pre><code>public partial class MainWindow : Window
+
+function anti_injection_login($sql, $formUse = true)
 {
-    private double totalPrice = 0.0d;
-    public MainWindow()
-    {
-        InitializeComponent();
-        InitOther();
-    }
-
-    void InitOther()
-    {
-        SinglePriceText.Text = &quot;0&quot;;
-        NumberText.Text = &quot;0&quot;;       
-        TotalPriceLabel.Content = &quot;0&quot;; 
-        RecordList.Items.Clear();
-        if (CalcMethod.Items.Count &gt;= 1)
-            return;
-        CalcMethod.Items.Add(&quot;正常收费&quot;);
-        CalcMethod.Items.Add(&quot;打8折&quot;);
-        CalcMethod.Items.Add(&quot;满300返200&quot;);
-        CalcMethod.SelectedIndex = 0;
-    }
-
-    private void ConfirmBtn_Click(object sender, RoutedEventArgs e)
-    {
-        CashContext cashContext = new CashContext(CalcMethod.SelectedItem.ToString());
-        double ItemTotalPrices = 0.0d;
-        ItemTotalPrices = cashContext.GetResult(double.Parse(SinglePriceText.Text)*int.Parse(NumberText.Text));
-        totalPrice += ItemTotalPrices ;
-        RecordList.Items.Add( &quot; 单价：&quot; + SinglePriceText.Text + &quot; 数量：&quot; + NumberText.Text + &quot; &quot; +
-                               CalcMethod.SelectedItem + &quot; 合计：&quot; + ItemTotalPrices+&quot;\n&quot;);
-        TotalPriceLabel.Content = totalPrice;
-    }
-
-    private void ResetBtn_Click(object sender, RoutedEventArgs e)
-    {
-        InitOther();
-    }
-
-
+$sql = preg_replace(&quot;/(from|select|insert|delete|where|drop table|show tables|,|&apos;|#|\*|--|\\\\)/i&quot;,&quot;&quot;,$sql);
+$sql = trim($sql);
+$sql = strip_tags($sql);
+if(!$formUse || !get_magic_quotes_gpc())
+  $sql = addslashes($sql);
+return $sql;
 }
-</code></pre><p>WPF界面设计</p>
-<pre><code>&lt;Window x:Class=&quot;CashApp.MainWindow&quot;
-    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
-    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
-    Title=&quot;商场收银系统&quot; Height=&quot;450&quot; Width=&quot;425&quot;&gt;
-&lt;Grid&gt;
-    &lt;TextBlock HorizontalAlignment=&quot;Left&quot; Margin=&quot;26,35,0,0&quot; TextWrapping=&quot;Wrap&quot; Text=&quot;单价：&quot; VerticalAlignment=&quot;Top&quot;/&gt;
-    &lt;TextBlock HorizontalAlignment=&quot;Left&quot; Margin=&quot;26,65,0,0&quot; TextWrapping=&quot;Wrap&quot; Text=&quot;数量：&quot; VerticalAlignment=&quot;Top&quot;/&gt;
-    &lt;TextBlock HorizontalAlignment=&quot;Left&quot; Margin=&quot;26,105,0,0&quot; TextWrapping=&quot;Wrap&quot; Text=&quot;计算方式：&quot; VerticalAlignment=&quot;Top&quot;/&gt;
-    &lt;TextBlock HorizontalAlignment=&quot;Left&quot; Margin=&quot;26,332,0,0&quot; TextWrapping=&quot;Wrap&quot; Text=&quot;总计：&quot; VerticalAlignment=&quot;Top&quot;/&gt;
-    &lt;TextBox  Name=&quot;SinglePriceText&quot; HorizontalAlignment=&quot;Left&quot; Height=&quot;23&quot; Margin=&quot;67,30,0,0&quot; TextWrapping=&quot;Wrap&quot; Text=&quot;TextBox&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;196&quot; HorizontalContentAlignment=&quot;Right&quot;/&gt;
-    &lt;TextBox  Name=&quot;NumberText&quot; HorizontalAlignment=&quot;Left&quot; Height=&quot;23&quot; Margin=&quot;67,60,0,0&quot; TextWrapping=&quot;Wrap&quot; Text=&quot;TextBox&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;196&quot; HorizontalContentAlignment=&quot;Right&quot;/&gt;
-    &lt;ListBox Name=&quot;RecordList&quot; Margin=&quot;26,151,25,119&quot; /&gt;
-    &lt;Label Name=&quot;TotalPriceLabel&quot; Content=&quot;&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;86,332,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;165&quot; Background=&quot;{DynamicResource {x:Static SystemColors.MenuBrushKey}}&quot; HorizontalContentAlignment=&quot;Right&quot; Height=&quot;26&quot;/&gt;
-    &lt;ComboBox Name=&quot;CalcMethod&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;101,105,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;120&quot;/&gt;
-    &lt;Button Name=&quot;ConfirmBtn&quot; Content=&quot;确认&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;317,32,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;75&quot; Click=&quot;ConfirmBtn_Click&quot;/&gt;
-    &lt;Button Name=&quot;ResetBtn&quot; Content=&quot;重置&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;317,62,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;75&quot; Click=&quot;ResetBtn_Click&quot;/&gt;
-&lt;/Grid&gt;
-&lt;/Window&gt;
-</code></pre><p>下面是测试图：<br><img src="/assets/Img/20170523-Img-Operation.jpg" alt=""></p>
-<p>如果需要添加新的返利方法，添加新的类就行，算法的变化，将不影响客户端。</p>
+
+// =============================================================================
+
+$unityHash = anti_injection_login($_POST[&quot;myform_hash&quot;]);
+$phpHash = &quot;hashcode&quot;;                                             
+$user = anti_injection_login($_POST[&quot;myform_user&quot;]);            
+$pass = anti_injection_login_senha($_POST[&quot;myform_pass&quot;]);
+
+if(!$user || !$pass) {
+echo &quot;用户名和密码不能为空&quot;;
+} else {
+if ($unityHash != $phpHash){
+    echo &quot;HASH code 和客户端游戏不相符&quot;;
+} else {
+    $SQL = &quot;SELECT * FROM qquser WHERE username = &apos;&quot; . $user . &quot;&apos;&quot;;        
+    $result_id = @mysql_query($SQL) or die(&quot;DATABASE ERROR!&quot;);
+    $total = mysql_num_rows($result_id);
+    if($total == 0) {
+        $msg1 = &quot;INSERT INTO `qquser` ( `id` , `username` , `password` , `newuser` ) VALUES (NULL , &apos;&quot; . $user . &quot;&apos;, MD5( &apos;&quot; . $pass. &quot;&apos; ), 0)&quot;; 
+        $sql1 = mysql_query($msg1);
+        echo &quot;Done&quot;;
+    } else {
+        echo &quot;用户名存在&quot;;
+    }
+}
+}
+
+mysql_close();
+?&gt;
+</code></pre><p>写好这两个php脚本后，将其都上传至网站空间，根据客户端的www连接地址（login.cs中的这句代码就是，public string URL = “<a href="http://www.dongliguangyou.cn/QQChat/login.php" target="_blank" rel="external">http://www.dongliguangyou.cn/QQChat/login.php</a>“;         //这边是改变你的网站地址的，我的是<a href="http://www.dongliguangyou.cn，你们改成自己的就行），确定上传的位置。" target="_blank" rel="external">http://www.dongliguangyou.cn，你们改成自己的就行），确定上传的位置。</a></p>
+<p>ps：如果只想本机测试也行，不过得下个phpStudy，将网站放在其www文件夹下，客户端www连接地址改成本机ip地址就行。</p>
+<p><img src="/assets/Img/20170921-Img-Operation.jpg" alt=""></p>
+<p><strong>测试效果</strong></p>
+<p>差点忘了，在数据库中添加一张表，我这边是qquser，然后添加id，uername，password几个字段就行，直接在西部数码的数据库管理中添加就行。</p>
+<p><img src="/assets/Img/20170921-Img-Operation1.jpg" alt=""></p>
+<p><img src="/assets/Img/20170921-Img-Operation2.jpg" alt=""></p>
+<p>之后运行客户端，点击注册，注册成功后，数据库中就会添加新的账户，点登陆的话，如果数据库中有该账户，就能登录成功。</p>
+<p><img src="/assets/Img/20170921-Img-Operation3.jpg" alt=""></p>
+<p><img src="/assets/Img/20170921-Img-Operation4.jpg" alt=""></p>
+<p><img src="/assets/Img/20170921-Img-Operation5.jpg" alt=""></p>
+<p><img src="/assets/Img/20170921-Img-Operation6.jpg" alt=""></p>
+<p>好了，大概就是这样，如果有任何问题都可以联系我。</p>
+<p>其实会了注册和登录，其他MMORpg中的包括物品，人物属性，商店等等都可以放置在数据库中，需要的时候调出来就行了。</p>
 
       
 
@@ -329,7 +344,7 @@ class CashReturn:CashSuper
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">DesignMode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
         		</li>
       		
 		</ul>
@@ -385,7 +400,7 @@ class CashReturn:CashSuper
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://KaiXinChenYu.github.io/2017/05/23/20170523-DesignMode-StrategyMode/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://KaiXinChenYu.github.io/2017/09/21/20170921-Unity3D-InternetLogin3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -400,20 +415,15 @@ class CashReturn:CashSuper
   
 <nav id="article-nav">
   
-    <a href="/2017/05/22/20170522-DesignMode-FactoryMode/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/09/20/20170920-Unity3D-InternetLogin2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          设计模式-简单工厂模式
+          MMORpg登录与注册(2)---Unity3D客户端开发
         
       </div>
     </a>
   
-  
-    <a href="/2017/05/27/20170527-DesignMode-Decorator/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">设计模式-装饰模式</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 

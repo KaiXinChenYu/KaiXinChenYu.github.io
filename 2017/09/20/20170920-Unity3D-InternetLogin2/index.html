@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170920-Img-Title.jpg">
 <meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170920-Img-Operation.jpg">
 <meta property="og:image" content="http://kaixinchenyu.github.io/assets/Img/20170920-Img-Operation1.jpg">
-<meta property="og:updated_time" content="2017-09-19T09:39:40.156Z">
+<meta property="og:updated_time" content="2017-09-19T09:45:45.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MMORpg登录与注册(2)---Unity3D客户端开发">
 <meta name="twitter:description" content="客户端就以我正在做的一个简易聊天软件为例，只讲下前面的登录和注册的验证功能。聊天系统是直接用的photon提供的一个插件，叫做photon chat，有兴趣可以去研究看看，免费的可以允许同时在线10个人，以此插件为基础，做一个聊天软件很轻松。 当然也可以直接用自己网站上的数据库作为聊天中介（这是我自己的理解，不知道对不对，原则上实现相互通信的没有问题的），不过尽量不要这么做，太占用数据库空间了。">
@@ -301,6 +301,8 @@ public GameObject registerPanel;
 public GameObject createPanel;
 public GameObject waitPage;
 
+public bool rem=true; //是否记住账号
+
 public void OnClickLogin()  //请求登录
 {
     GameObject.Find(&quot;WebLogin&quot;).GetComponent(&quot;Login&quot;).SendMessage(&quot;GetData&quot;, userName.text + &quot;:&quot; + password.text);
@@ -331,26 +333,22 @@ public void AnswerLogin(string ans)   //处理登录返回值
     if (ans.Split(&apos;:&apos;)[0] == &quot;Correct&quot;)
     {
         GameInfo._instance.userName = userName.text;
+        //这下面可以不看
         if (rem)
         {
             PlayerPrefs.SetString(&quot;User&quot;, userName.text);
         }
         if (ans.Split(&apos;:&apos;)[1] == &quot;0&quot;)
-        {                            //If Player hasn&apos;t any characters, &quot;CreateCharacter&quot; scene will be loaded
-            //Application.LoadLevel(&quot;CreateCharacter&quot;);
-            //TODO新账号起名nickname
+        {                            
             Debug.Log(&quot;新账号,创建名字&quot;);
             createPanel.gameObject.SetActive(true);
-
         }
         else
         {
             GameInfo._instance.nickName = PlayerPrefs.GetString(&quot;NickName&quot;);
             waitPage.SetActive(true);
             Invoke(&quot;EnterApp&quot;, 1.0f);
-            Debug.Log(&quot;进入账户&quot;);
-            //直接进入账号
-            //Application.LoadLevel(&quot;ChooseCharacter&quot;);
+            Debug.Log(&quot;进入账户&quot;);               
         }
     } 
     if (ans.Split(&apos;:&apos;)[0] == &quot;Wrong&quot;)
@@ -471,6 +469,11 @@ public void AnswerRegister(string ans)  //处理注册返回值
     </a>
   
   
+    <a href="/2017/09/21/20170921-Unity3D-InternetLogin3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MMORpg登录与注册(3)---PHP脚本和测试</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
 </nav>
 
 
@@ -581,11 +584,11 @@ public void AnswerRegister(string ans)  //处理注册返回值
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">成长之路</a>
+                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
+                <a href="javascript:void(0)" class="js-tag color5">成长之路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,7 +600,7 @@ public void AnswerRegister(string ans)  //处理注册返回值
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Unity3D-Server</a>
+                <a href="javascript:void(0)" class="js-tag color1">DesignMode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -605,7 +608,7 @@ public void AnswerRegister(string ans)  //处理注册返回值
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DesignMode</a>
+                <a href="javascript:void(0)" class="js-tag color5">Unity3D-Server</a>
               </li>
             
             <div class="clearfix"></div>
